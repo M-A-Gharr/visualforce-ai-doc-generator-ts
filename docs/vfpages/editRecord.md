@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: editRecord
 
-No overview found.
+The 'editRecord' Visualforce page allows users to view and edit the details of an 'Account' record within Salesforce. It provides form fields for attributes such as Name, Type, Phone, and Number of Employees, along with buttons for saving changes, quickly saving, or canceling the operation.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to facilitate the editing and updating of account information, ensuring accurate and up-to-date records in the Salesforce system.
 
 
 

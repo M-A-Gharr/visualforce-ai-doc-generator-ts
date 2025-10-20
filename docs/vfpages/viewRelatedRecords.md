@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: viewRelatedRecords
 
-No overview found.
+The 'viewRelatedRecords' Visualforce page displays a list of contacts related to a Salesforce Account record, including their names, titles, phone numbers, and email addresses.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to provide users with easy access to view and navigate related contact information associated with a specific account.
 
 
 

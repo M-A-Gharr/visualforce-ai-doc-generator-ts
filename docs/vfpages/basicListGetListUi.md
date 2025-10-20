@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: basicListGetListUi
 
-No overview found.
+The Visualforce page 'basicListGetListUi' displays a list of Account records in a table format, showing relevant details such as the account name, type, phone number, and number of employees.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to provide users with an organized view of multiple Account records, facilitating quick access to key account information for better management and decision-making.
 
 
 

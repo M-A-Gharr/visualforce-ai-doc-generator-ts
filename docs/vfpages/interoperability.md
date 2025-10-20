@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: interoperability
 
-No overview found.
+The Visualforce page named 'interoperability' demonstrates how Lightning Web Components (LWC) can be integrated within Visualforce pages using Lightning Out. It allows users to interact with LWC by triggering methods and setting properties through buttons. The page includes an LWC and displays messages based on interactions, illustrating live updates in response to user actions.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to serve as a demonstration tool for developers, showcasing the interoperability between Visualforce and Lightning Web Components, thereby facilitating the use of modern web components within Salesforce's legacy Visualforce framework.
 
 
 

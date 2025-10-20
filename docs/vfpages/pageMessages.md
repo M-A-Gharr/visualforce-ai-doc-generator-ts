@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageMessages
 
-No overview found.
+The Visualforce page 'pageMessages' displays system messages to the user and provides a button to trigger the generation and sending of a PDF document via an Apex method.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to allow users to generate and send a PDF document as part of a workflow process.
 
 
 

@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: beforeRenderHook
 
-No overview found.
+The Visualforce page 'beforeRenderHook' displays a list of courses by iterating through a collection provided by the BeforeRenderHookController.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to populate and present available courses to the user.
 
 
 

@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageBlocks
 
-No overview found.
+The Visualforce page titled 'pageBlocks' displays details about a course, including its contents and the instructors responsible for teaching it.
 
 ### Purpose of the Page
-No purpose found.
+To provide an organized presentation of course information related to agriculture, highlighting topics and instructors to assist learners in understanding the course structure.
 
 
 
