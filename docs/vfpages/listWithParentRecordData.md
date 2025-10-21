@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: listWithParentRecordData
 
-The Visualforce page displays a table of Account records, showing essential information such as the Account Name, Type, Phone number, and Owner's Name.
+No overview found.
 
 ### Purpose of the Page
-Its main business function is to provide users with a structured view of multiple Account records, facilitating easy access to key details for management and analysis.
+No purpose found.
 
 
 

@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: aaa
 
-The Visualforce page named 'aaa' displays a list of contacts associated with a specific account. Users can hover over a contact's name to view more details about that contact dynamically.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to provide a user-friendly interface for Salesforce users to easily access and view information about contacts linked to an account.
+No purpose found.
 
 
 

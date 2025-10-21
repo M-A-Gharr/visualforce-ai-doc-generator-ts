@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: editableList
 
-The 'editableList' Visualforce page displays a list of Account records in a tabular format, allowing users to edit attributes such as Name, Type, Phone, and Number of Employees directly within the table. It includes buttons for saving or canceling the changes made to the records.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to enable users to efficiently modify and manage multiple Account records at once, improving data entry and update processes within the Salesforce platform.
+No purpose found.
 
 
 

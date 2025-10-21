@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: createMixedRecords
 
-The 'createMixedRecords' Visualforce page allows users to input details for a new contact and a new opportunity. Once the user fills in the required fields and clicks the button, both records are created in Salesforce.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to streamline the process of creating both a new contact and a new opportunity simultaneously, enhancing efficiency in record management.
+No purpose found.
 
 
 

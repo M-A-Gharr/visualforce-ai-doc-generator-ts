@@ -5,7 +5,7 @@
 
 ## Visualforce Page Overview: aa1
 
-The Visualforce page 'aa1' showcases various Visualforce components, controllers, and data bindings, providing a platform to test and validate a documentation generator. It displays account details, related contacts, and allows interaction via forms, data tables, and AJAX-driven content.
+This page demonstrates various Visualforce components, controllers,
 
 ### Purpose of the Page
 To serve as a comprehensive test case for a Visualforce documentation parser.
@@ -44,7 +44,6 @@ No public properties found in associated Apex controllers/extensions.
 | `doSomethingInner` | `void` | `()` | `` | `None` |  |
 | `processData` | `void` | `(List<String> dataList, Integer quantity)` | `` | `None` |  |
 | `fetchContactDetails` | `void` | `()` | `` | `None` |  |
-| `internalMethod` | `void` | `()` | `` | `None` |  |
 | `getStaticInfo` | `String` | `()` | `` | `None` |  |
 | `doSomethingElse` | `PageReference` | `()` | `` | `None` |  |
 
@@ -102,6 +101,8 @@ The page includes `apex:actionSupport` components:
 - `AnotherExtension`
 - `User`
 - `CurrentPage`
+- `Organization`
+- `Contact`
 
 ### Fields
 - `$User.FirstName`

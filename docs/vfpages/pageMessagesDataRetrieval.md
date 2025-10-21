@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageMessagesDataRetrieval
 
-The 'pageMessagesDataRetrieval' Visualforce page is designed to display account information and any associated messages to the user. It leverages a controller to fetch account data and presents it within a form, including system messages that may be relevant to the user.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to retrieve and display account data along with user messages, facilitating better user communication and account management within the Salesforce environment.
+No purpose found.
 
 
 

@@ -5,7 +5,7 @@
 
 ## Visualforce Page Overview: paginatedList
 
-This page displays a paginated list of accounts, allowing users to navigate through multiple pages of account records.
+This page displays a paginated list of accounts.
 
 ### Purpose of the Page
 Allow users to browse accounts with pagination.

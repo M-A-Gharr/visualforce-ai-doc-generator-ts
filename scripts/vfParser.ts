@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { parseApexClassFile, ApexClassInfo } from "./apexParser";
+import { parseApexClassFile, ApexClassInfo, ApexProperty, ApexMethod } from "./apexParser";
 import { AiManager } from "./AIProvider/AiManager";
 // import { CopilotProvider } from "./AIProvider/copilotProvider";
 // import { GoogleAiProvider } from "./AIProvider/googleAiProvider";
@@ -103,18 +103,47 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
     const allClasses: ApexClassInfo[] = [];
     if (customController) {
         const customClass = parseApexClassFile(apexDir, customController);
-        if (customClass) allClasses.push(customClass);
+        if (customClass) {
+            allClasses.push(customClass);
+            console.log(`Successfully parsed Custom Controller: ${customController}. Properties found: ${customClass.properties.length}, Methods found: ${customClass.methods.length}`);
+        } else {
+            console.warn(`Failed to parse Custom Controller: ${customController}`);
+        }
     }
     if (extensions) {
         extensions.forEach(ext => {
             const extClass = parseApexClassFile(apexDir, ext);
-            if (extClass) allClasses.push(extClass);
+            if (extClass) {
+                allClasses.push(extClass);
+                console.log(`Successfully parsed Extension: ${ext}. Properties found: ${extClass.properties.length}, Methods found: ${extClass.methods.length}`);
+            } else {
+                console.warn(`Failed to parse Extension: ${ext}`);
+            }
         });
     }
 
+    let allRawProperties: ApexProperty[] = [];
+    let allRawMethods: ApexMethod[] = [];
+
+    allClasses.forEach(cls => {
+        allRawProperties.push(...cls.properties);
+        allRawMethods.push(...cls.methods);
+        cls.innerClasses.forEach(innerCls => {
+            allRawProperties.push(...innerCls.properties);
+            allRawMethods.push(...innerCls.methods);
+        });
+    });
+
     // Merge properties and methods from all classes
     const properties = allClasses.flatMap(c => [...c.properties, ...c.innerClasses.flatMap(ic => ic.properties)]);
-    const methods = allClasses.flatMap(c => [...c.methods, ...c.innerClasses.flatMap(ic => ic.methods)]);
+    const methods = allRawMethods.filter(m => m.visibility === 'public' || m.visibility === 'global');
+
+    console.log(`Total properties after merging: ${properties.length}`);
+    console.log(`Total methods after filtering: ${methods.length}`);
+
+    // remove duplicates
+    const uniqueProperties = Array.from(new Set(properties.map(p => JSON.stringify(p)))).map(s => JSON.parse(s));
+    const uniqueMethods = Array.from(new Set(methods.map(m => JSON.stringify({ name: m.name, parameters: m.parameters, type: m.type })))).map(s => JSON.parse(s));
 
     // Detect page structure
     const formsMatch = content.match(/<apex:form\b/gi) || [];
@@ -176,6 +205,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
     // Dependencies
     const detectedObjects: Set<string> = new Set();
     const detectedDetailedFields: Set<string> = new Set();
+    const customComponentMatches: Set<string> = new Set();
 
     if (standardController) {
         detectedObjects.add(standardController);
@@ -188,35 +218,49 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         extensions.forEach(ext => detectedObjects.add(ext));
     }
 
-    const bindingRegex = /\{!([a-zA-Z0-9_$][a-zA-Z0-9_.]*)\}/g;
-    let bindingMatch;
-    while ((bindingMatch = bindingRegex.exec(content)) !== null) {
-        const fullBindingPath = bindingMatch[1];
-        detectedDetailedFields.add(fullBindingPath);
-        const parts = fullBindingPath.split('.');
+    const fullBindingPathRegex = /\{!([a-zA-Z0-9_$][a-zA-Z0-9_.]*)\}/g;
+    let fullPathMatch;
+    while ((fullPathMatch = fullBindingPathRegex.exec(content)) !== null) {
+        const fullBinding = fullPathMatch[1];
+        detectedDetailedFields.add(fullBinding);
+        const parts = fullBinding.split('.');
         const rootIdentifier = parts[0];
 
         if (rootIdentifier) {
             if (rootIdentifier.startsWith('$')) {
                 // Handle global variables as special objects or categories
-                if (rootIdentifier === '$User') {
-                    detectedObjects.add('User');
-                } else if (rootIdentifier === '$CurrentPage') {
-                    detectedObjects.add('CurrentPage');
-                }
+                if (rootIdentifier === '$User') detectedObjects.add('User');
+                else if (rootIdentifier === '$CurrentPage') detectedObjects.add('CurrentPage');
+                else if (rootIdentifier === '$Organization') detectedObjects.add('Organization');
             } else {
-                if (rootIdentifier[0] && rootIdentifier[0].toUpperCase() === rootIdentifier[0]) {
+                if (rootIdentifier[0] && rootIdentifier[0].toUpperCase() === rootIdentifier[0] &&
+                    rootIdentifier !== customController && !extensions.includes(rootIdentifier)) {
                     detectedObjects.add(rootIdentifier);
                 }
             }
         }
     }
 
-    if (standardController && content.includes(`value="{!${standardController.toLowerCase()}.Contacts}"`)) {
-        detectedObjects.add('Contact');
+    const dataTableVarRegex = /<apex:dataTable[^>]*value="{!([^.]+)\.([^"]+)}"[^>]*var="([^"]+)"/gi;
+    let dataTableMatch;
+    while ((dataTableMatch = dataTableVarRegex.exec(content)) !== null) {
+        const parentObjectVar = dataTableMatch[1];
+        const relatedList = dataTableMatch[2];
+        // childObjectVar is dataTableMatch[3] but not directly used for SObject type here
+
+        if (standardController && parentObjectVar.toLowerCase() === standardController.toLowerCase()) {
+            if (relatedList.endsWith('s')) {
+                const inferredSObject = relatedList.substring(0, relatedList.length - 1);
+                detectedObjects.add(inferredSObject);
+            }
+        }
     }
 
-    const customComponentMatches = [...(content.matchAll(/<c:([A-Za-z0-9_]+)/g) || [])].map(m => m[1]);
+    const customComponentTagRegex = /<c:([A-Za-z0-9_]+)/g;
+    let componentMatch;
+    while ((componentMatch = customComponentTagRegex.exec(content)) !== null) {
+        customComponentMatches.add(componentMatch[1]);
+    }
 
     // PageBlocks for output
     const pageBlocks = [...(content.matchAll(/<apex:pageBlock\s+([^>]+)>/gi) || [])].map(m => {
@@ -227,11 +271,6 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
             // Add other relevant attributes like `id`, `mode`, etc.
         };
     });
-
-    // remove duplicates
-    const uniqueProperties = Array.from(new Set(properties.map(p => JSON.stringify(p)))).map(s => JSON.parse(s));
-    const uniqueMethods = Array.from(new Set(methods.map(m => JSON.stringify({ name: m.name, parameters: m.parameters, type: m.type })))).map(s => JSON.parse(s));
-
 
     return {
         pageMeta: {

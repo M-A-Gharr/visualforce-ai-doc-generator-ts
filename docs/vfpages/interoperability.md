@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: interoperability
 
-The Visualforce page named 'interoperability' allows the integration of Lightning web components into Visualforce pages using Lightning Out. It provides interactive buttons to set properties and call methods from the Lightning web component embedded within the page.
+No overview found.
 
 ### Purpose of the Page
-The main business function of the 'interoperability' page is to facilitate the usage of Lightning web components within a Visualforce framework, enabling users to enhance their UI and functionality while maintaining compatibility with existing Visualforce applications.
+No purpose found.
 
 
 

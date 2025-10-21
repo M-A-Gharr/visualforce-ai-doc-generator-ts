@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: createRecordWithPrepopulatedValues
 
-The Visualforce page 'createRecordWithPrepopulatedValues' allows users to create and edit Account records with prepopulated fields, leveraging a custom controller for additional functionality.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to facilitate the creation of new Account records by prepopulating the relevant fields, thereby streamlining the data entry process for users.
+No purpose found.
 
 
 

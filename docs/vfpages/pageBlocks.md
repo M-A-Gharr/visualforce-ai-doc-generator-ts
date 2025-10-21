@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageBlocks
 
-The 'pageBlocks' Visualforce page displays a structured overview of course details, including topics covered and the instructors for the course.
+No overview found.
 
 ### Purpose of the Page
-To provide users with essential information about a specific course, including its content areas and the instructors leading each section, facilitating better understanding and engagement with the course.
+No purpose found.
 
 
 

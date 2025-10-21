@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: afterRenderHook
 
-The 'afterRenderHook' Visualforce page displays a list of courses dynamically populated from a controller and updates the displayed content when the page loads.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to retrieve and present a list of courses to users, enhancing the user experience by automatically loading the courses upon the page's rendering.
+No purpose found.
 
 
 

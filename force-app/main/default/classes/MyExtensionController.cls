@@ -9,7 +9,7 @@ public with sharing class MyExtensionController {
     // Properties
     public Boolean myBooleanProperty { get; set; }
     public Id selectedContactId { get; set; }
-    public Contact currentContact { get; private set; } // Should be documented
+    public Contact currentContact { get; private set; }
 
     // Constructor
     public MyExtensionController(ApexPages.StandardController controller) {

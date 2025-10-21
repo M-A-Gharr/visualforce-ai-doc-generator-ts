@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: panelBar
 
-The Visualforce page 'panelBar' displays a collapsible panel bar containing information about different individuals, including their names and locations.
+No overview found.
 
 ### Purpose of the Page
-To provide a user-friendly interface for displaying and organizing contact information in a collapsible format, enhancing the visualization of multiple entries.
+No purpose found.
 
 
 
