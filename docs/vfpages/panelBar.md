@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: panelBar
 
-The 'panelBar' Visualforce page creates an interactive panel bar interface displaying a list of individuals along with their corresponding locations.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to provide a user-friendly way to present contact information of individuals by organizing it in expandable and collapsible panels.
+No purpose found.
 
 
 
@@ -52,6 +52,12 @@ No public methods found in associated Apex controllers/extensions.
 ### Buttons
 - No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
 
+</details>
+
+<details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
 </details>
 
 <details>

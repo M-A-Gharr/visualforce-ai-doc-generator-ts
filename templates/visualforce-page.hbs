@@ -107,6 +107,18 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+{{#if pageBlocks.length}}
+{{#each pageBlocks}}
+- **Title**: `{{this.title}}`
+{{/each}}
+{{else}}
+No `apex:pageBlock` components detected.
+{{/if}}
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 {{#if actionSupports.length}}

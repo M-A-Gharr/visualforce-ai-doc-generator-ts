@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageMessages
 
-The Visualforce page 'pageMessages' displays system messages to the user and provides a button to trigger the generation and sending of a PDF document via an Apex method.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to allow users to generate and send a PDF document as part of a workflow process.
+No purpose found.
 
 
 
@@ -59,6 +59,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -71,7 +77,7 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `PageMessagesController`
 
 ### Fields
 - No field dependencies detected

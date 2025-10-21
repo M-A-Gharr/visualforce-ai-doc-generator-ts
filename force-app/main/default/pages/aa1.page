@@ -1,0 +1,93 @@
+<!--
+Overview: This page demonstrates various Visualforce components, controllers,
+extensions, and data bindings to test a documentation generator.
+Purpose: To serve as a comprehensive test case for a Visualforce documentation parser.
+-->
+<apex:page standardController="Account" extensions="MyExtensionController,AnotherExtension"
+           controller="MyCustomController"
+           sidebar="false" showHeader="false"
+           docType="html-5.0">
+
+    <!-- A simple page block -->
+    <apex:pageBlock title="Page Information for {!$User.FirstName}">
+        <p>This is a test page to validate documentation generation. The current account is {!Account.Name}.</p>
+        <p>Related Contacts Count: {!Account.Contacts.size}</p>
+        <p>Current Record ID from URL: {!$CurrentPage.parameters.recordId}</p>
+        <p>Another global variable reference: {!$Organization.Name}</p>
+    </apex:pageBlock>
+
+    <!-- A form with various input types -->
+    <apex:form id="testForm">
+        <apex:pageBlock title="Account Details" id="accountBlock">
+            <apex:pageBlockSection title="Main Info" columns="2">
+                <apex:inputField value="{!Account.Name}" label="Account Name"/>
+                <apex:inputText value="{!myCustomController.myStringProperty}" label="Custom String"/>
+                <apex:inputCheckbox value="{!MyExtensionController.myBooleanProperty}" label="Extension Boolean"/>
+                <apex:selectList value="{!myCustomController.selectedOption}" size="1" label="Select Option">
+                    <apex:selectOption itemValue="Option1" itemLabel="Option 1"/>
+                    <apex:selectOption itemValue="Option2" itemLabel="Option 2"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save Account" action="{!myCustomController.saveAccount}" rerender="statusPanel"/>
+                <apex:button value="Cancel" onclick="window.history.back();"/>
+                <apex:commandLink value="Delete" action="{!Account.delete}" style="color:red;"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <!-- Data table with actionSupport -->
+        <apex:pageBlock title="Associated Contacts">
+            <apex:dataTable value="{!Account.Contacts}" var="con" cellPadding="4" border="1" id="contactTable">
+                <apex:column headerValue="Contact Name">
+                    <apex:outputPanel>
+                        <apex:actionSupport event="onmouseover"
+                                            action="{!MyExtensionController.fetchContactDetails}"
+                                            rerender="contactDetailPanel,statusPanel"
+                                            status="loadingStatus">
+                            <apex:param name="contactId" value="{!con.Id}" assignTo="{!MyExtensionController.selectedContactId}"/>
+                        </apex:actionSupport>
+                        {!con.Name}
+                    </apex:outputPanel>
+                </apex:column>
+                <apex:column headerValue="Title">
+                    {!con.Title}
+                </apex:column>
+            </apex:dataTable>
+        </apex:pageBlock>
+    </apex:form>
+
+    <!-- Output panel to display details via AJAX -->
+    <apex:outputPanel id="contactDetailPanel" layout="block">
+        <h3>Contact Details (AJAX Loaded)</h3>
+        <apex:actionStatus id="loadingStatus" startText="Loading details..." stopText="Details Loaded:">
+            <apex:facet name="stop">
+                <apex:detail subject="{!MyExtensionController.selectedContactId}"
+                             relatedList="false"
+                             title="false"/>
+            </apex:facet>
+        </apex:actionStatus>
+        <p>Details for contact ID: {!MyExtensionController.selectedContactId}</p>
+    </apex:outputPanel>
+
+    <!-- Another output panel, without explicit ID, but should still be parsed if content is inside -->
+    <apex:outputPanel layout="inline">
+        <p>This is an inline output panel.</p>
+    </apex:outputPanel>
+
+    <!-- Example of a Custom Component -->
+    <c:MyCustomHeader title="My Test Header" subtitle="A subtitle for the test page"/>
+
+    <!-- A script block -->
+    <script>
+        function greet() {
+            console.log('Hello from a script on {!Account.Name} page!');
+            // This is a comment inside a script
+            var myVar = '{!MyCustomController.myStringProperty}';
+        }
+        window.onload = greet;
+    </script>
+    <!-- External script reference (will depend on your regex) -->
+    <script src="/soap/ajax/30.0/connection.js"></script>
+
+</apex:page>

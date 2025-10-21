@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: binding
 
-This Visualforce page allows users to input a course name, which is then displayed on the page when the input changes. It utilizes an action support element to re-render a section of the page with the updated course name without needing a full page refresh.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to enable users to dynamically submit and view course names, enhancing user interaction and data entry efficiency.
+No purpose found.
 
 
 
@@ -56,6 +56,12 @@ The page utilizes the following input bindings/fields:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 The page includes `apex:actionSupport` components:
@@ -66,8 +72,8 @@ The page includes `apex:actionSupport` components:
 
 ### Output Panels
 - **ID**: `courseInfo`
-  - **Layout**: 
-  - **Content Preview**: ""
+  - **Layout**: block (default)
+  - **Content Preview**: "No content detected within the panel."
 
 </details>
 
@@ -75,7 +81,7 @@ The page includes `apex:actionSupport` components:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `BindingController`
 
 ### Fields
 - No field dependencies detected

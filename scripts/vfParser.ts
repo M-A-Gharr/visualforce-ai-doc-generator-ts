@@ -101,8 +101,16 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
 
     // Parse Apex classes
     const allClasses: ApexClassInfo[] = [];
-    if (customController) allClasses.push(parseApexClassFile(apexDir, customController));
-    if (extensions) extensions.forEach(ext => allClasses.push(parseApexClassFile(apexDir, ext)));
+    if (customController) {
+        const customClass = parseApexClassFile(apexDir, customController);
+        if (customClass) allClasses.push(customClass);
+    }
+    if (extensions) {
+        extensions.forEach(ext => {
+            const extClass = parseApexClassFile(apexDir, ext);
+            if (extClass) allClasses.push(extClass);
+        });
+    }
 
     // Merge properties and methods from all classes
     const properties = allClasses.flatMap(c => [...c.properties, ...c.innerClasses.flatMap(ic => ic.properties)]);
@@ -110,7 +118,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
 
     // Detect page structure
     const formsMatch = content.match(/<apex:form\b/gi) || [];
-    const inputMatches = [...(content.matchAll(/<apex:(inputField|inputText|inputTextarea|selectList)[^>]*value="([^"]+)"/gi) || [])];
+    const inputMatches = [...(content.matchAll(/<apex:(inputField|inputText|inputTextarea|selectList|inputCheckbox)[^>]*value="([^"]+)"/gi) || [])];
     const buttonMatches = [...(content.matchAll(/<apex:(commandButton|commandLink|button)[^>]*action="([^"]+)"/gi) || [])];
 
     const pageStructure = {
@@ -131,17 +139,33 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
             reRender: reRenderMatch?.[1],
             action: actionMatch?.[1],
             status: statusMatch?.[1],
-            parent: "", // could add parent id if needed
+            parent: "",
             parentId: "",
         };
     });
 
     // Detect outputPanels
-    const outputPanels = [...(content.matchAll(/<apex:outputPanel\s+id="([^"]+)"/gi) || [])].map(m => ({
-        id: m[1],
-        layout: "", // optional parsing
-        contentPreview: "",
-    }));
+    const outputPanels = [...(content.matchAll(/<apex:outputPanel\s+id="([^"]+)"([^>]*)>/gi) || [])].map(m => {
+        const id = m[1];
+        const attrs = m[2];
+        const layoutMatch = attrs.match(/layout="([^"]+)"/i);
+        const layout = layoutMatch?.[1] ?? "block (default)";
+
+        const fullOutputPanelMatch = content.match(new RegExp(`<apex:outputPanel\\s+id="${id}"[^>]*>([\\s\\S]*?)<\\/apex:outputPanel>`, 'i'));
+        let innerContent = fullOutputPanelMatch?.[1]?.trim() || '';
+
+        let contentPreview = innerContent.replace(/\s+/g, ' ');
+        contentPreview = contentPreview.replace(/<apex:[^>]+>/g, '').replace(/<\/[^>]+>/g, '').trim(); // Remove VF and HTML tags
+        contentPreview = contentPreview.substring(0, 150) + (contentPreview.length > 150 ? '...' : ''); // Truncate
+        contentPreview = contentPreview || 'No content detected within the panel.';
+
+
+        return {
+            id: id,
+            layout: layout,
+            contentPreview: contentPreview,
+        };
+    });
 
     // Scripts
     const scripts = [...(content.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi) || [])].map(m => ({
@@ -150,8 +174,64 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
     }));
 
     // Dependencies
-    const objectMatches = [...(content.matchAll(/\{!([A-Z][A-Za-z0-9_]+)\./g) || [])].map(m => m[1]);
-    const fieldMatches = [...(content.matchAll(/\{![A-Z][A-Za-z0-9_]+\.(\w+)/g) || [])].map(m => m[1]);
+    const detectedObjects: Set<string> = new Set();
+    const detectedFields: Set<string> = new Set();
+
+    if (standardController) {
+        detectedObjects.add(standardController);
+    }
+
+    if (customController) {
+        detectedObjects.add(customController);
+    }
+    if (extensions) {
+        extensions.forEach(ext => detectedObjects.add(ext));
+    }
+
+    const bindingRegex = /\{!(\$?[A-Z][A-Za-z0-9_]*)(?:\.(\w+))?(?:\.(\w+))?(?:\.(\w+))?\}/g;
+    let bindingMatch;
+    while ((bindingMatch = bindingRegex.exec(content)) !== null) {
+        const fullBindingPath = bindingMatch[1];
+        detectedFields.add(fullBindingPath);
+        const parts = fullBindingPath.split('.');
+        const rootIdentifier = parts[0];
+
+        if (rootIdentifier) {
+            if (rootIdentifier.startsWith('$')) {
+                // Handle global variables as special objects or categories
+                if (rootIdentifier === '$User') {
+                    detectedObjects.add('User');
+                } else if (rootIdentifier === '$CurrentPage') {
+                    detectedObjects.add('CurrentPageContext');
+                }
+            } else {
+                if (rootIdentifier[0] && rootIdentifier[0].toUpperCase() === rootIdentifier[0]) {
+                    detectedObjects.add(rootIdentifier);
+                }
+            }
+        }
+    }
+
+    if (standardController && content.includes(`value="{!${standardController.toLowerCase()}.Contacts}"`)) {
+        detectedObjects.add('Contact');
+    }
+
+    const customComponentMatches = [...(content.matchAll(/<c:([A-Za-z0-9_]+)/g) || [])].map(m => m[1]);
+
+    // PageBlocks for output
+    const pageBlocks = [...(content.matchAll(/<apex:pageBlock\s+([^>]+)>/gi) || [])].map(m => {
+        const attrs = m[1];
+        const titleMatch = attrs.match(/title="([^"]+)"/i);
+        return {
+            title: titleMatch?.[1] ?? "N/A",
+            // Add other relevant attributes like `id`, `mode`, etc.
+        };
+    });
+
+    // remove duplicates
+    const uniqueProperties = Array.from(new Set(properties.map(p => JSON.stringify(p)))).map(s => JSON.parse(s));
+    const uniqueMethods = Array.from(new Set(methods.map(m => JSON.stringify({ name: m.name, parameters: m.parameters, type: m.type })))).map(s => JSON.parse(s));
+
 
     return {
         pageMeta: {
@@ -170,8 +250,12 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         interactions: [],
         actionSupports,
         outputPanels,
-        pageBlocksAI: [],
-        dependencies: { objects: Array.from(new Set(objectMatches)), fields: Array.from(new Set(fieldMatches)), components: [] },
+        pageBlocksAI: pageBlocks,
+        dependencies: {
+            objects: Array.from(detectedObjects),
+            fields: Array.from(detectedFields),
+            components: Array.from(new Set(customComponentMatches)),
+        },
         scripts,
     };
 }

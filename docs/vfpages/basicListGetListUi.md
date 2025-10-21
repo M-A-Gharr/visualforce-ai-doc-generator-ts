@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: basicListGetListUi
 
-The Visualforce page 'basicListGetListUi' displays a list of Account records in a table format, showing relevant details such as the account name, type, phone number, and number of employees.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to provide users with an organized view of multiple Account records, facilitating quick access to key account information for better management and decision-making.
+No purpose found.
 
 
 
@@ -55,6 +55,12 @@ No public methods found in associated Apex controllers/extensions.
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -67,7 +73,7 @@ No public methods found in associated Apex controllers/extensions.
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
 
 ### Fields
 - No field dependencies detected

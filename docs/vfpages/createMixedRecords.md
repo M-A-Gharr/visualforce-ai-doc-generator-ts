@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: createMixedRecords
 
-The 'createMixedRecords' Visualforce page allows users to create a new Contact and a new Opportunity in Salesforce through a single form interface. The page includes input fields for the contact's first and last names as well as the opportunity's name, and it features a button to submit the data.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to streamline the process of creating a Contact and an Opportunity simultaneously, thereby enhancing user efficiency and ensuring data consistency within the Salesforce platform.
+No purpose found.
 
 
 
@@ -62,6 +62,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -74,7 +80,7 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `CreateMixedRecordsApexController`
 
 ### Fields
 - No field dependencies detected

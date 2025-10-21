@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: visualforceAction
 
-The page is a Visualforce component designed to provide a user interface for managing Contact records in Salesforce. It utilizes the Salesforce Lightning Design System (SLDS) for styling and layout.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to serve as a user-friendly interface for users to interact with Contact records, enhancing the overall user experience within the Salesforce environment.
+No purpose found.
 
 
 
@@ -55,6 +55,12 @@ No public methods found in associated Apex controllers/extensions.
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -67,7 +73,7 @@ No public methods found in associated Apex controllers/extensions.
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Contact`
 
 ### Fields
 - No field dependencies detected

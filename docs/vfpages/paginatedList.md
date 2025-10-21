@@ -5,7 +5,7 @@
 
 ## Visualforce Page Overview: paginatedList
 
-This page displays a paginated list of accounts, allowing users to navigate through multiple records.
+This page displays a paginated list of accounts.
 
 ### Purpose of the Page
 Allow users to browse accounts with pagination.
@@ -69,6 +69,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -81,7 +87,8 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
+- `PaginatedListControllerLwc`
 
 ### Fields
 - No field dependencies detected

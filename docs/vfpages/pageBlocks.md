@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageBlocks
 
-The Visualforce page titled 'pageBlocks' displays details about a course, including its contents and the instructors responsible for teaching it.
+No overview found.
 
 ### Purpose of the Page
-To provide an organized presentation of course information related to agriculture, highlighting topics and instructors to assist learners in understanding the course structure.
+No purpose found.
 
 
 
@@ -52,6 +52,12 @@ No public methods found in associated Apex controllers/extensions.
 ### Buttons
 - No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
 
+</details>
+
+<details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
 </details>
 
 <details>

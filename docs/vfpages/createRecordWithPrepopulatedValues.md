@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: createRecordWithPrepopulatedValues
 
-The 'createRecordWithPrepopulatedValues' Visualforce page allows users to create a new Account record with prepopulated fields. It includes input fields for Account Name, Type, Phone, and Number of Employees, enabling users to easily edit and save the account details.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to streamline the process of creating new Account records in Salesforce by providing a user-friendly interface with essential fields prefilled, thereby enhancing user efficiency and data accuracy.
+No purpose found.
 
 
 
@@ -61,6 +61,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -73,7 +79,8 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
+- `CreateRecordPrepopulatedController`
 
 ### Fields
 - No field dependencies detected

@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: editRecord
 
-The 'editRecord' Visualforce page allows users to view and edit the details of an 'Account' record within Salesforce. It provides form fields for attributes such as Name, Type, Phone, and Number of Employees, along with buttons for saving changes, quickly saving, or canceling the operation.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to facilitate the editing and updating of account information, ensuring accurate and up-to-date records in the Salesforce system.
+No purpose found.
 
 
 
@@ -62,6 +62,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -74,7 +80,7 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
 
 ### Fields
 - No field dependencies detected

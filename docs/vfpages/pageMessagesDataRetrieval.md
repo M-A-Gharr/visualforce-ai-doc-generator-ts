@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: pageMessagesDataRetrieval
 
-The Visualforce page 'pageMessagesDataRetrieval' displays account information and messages to the user. It utilizes a custom controller to retrieve account data and includes a section to show page messages.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to provide users with a view of account data alongside relevant messages, allowing for efficient account management and communication of important information.
+No purpose found.
 
 
 
@@ -58,6 +58,12 @@ No public properties found in associated Apex controllers/extensions.
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -70,7 +76,7 @@ No public properties found in associated Apex controllers/extensions.
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `PageMessagesDataRetrievalController`
 
 ### Fields
 - No field dependencies detected

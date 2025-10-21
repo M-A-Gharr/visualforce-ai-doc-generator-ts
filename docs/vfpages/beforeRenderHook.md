@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: beforeRenderHook
 
-The Visualforce page 'beforeRenderHook' displays a list of courses by iterating through a collection provided by the BeforeRenderHookController.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to populate and present available courses to the user.
+No purpose found.
 
 
 
@@ -58,6 +58,12 @@ No public properties found in associated Apex controllers/extensions.
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -70,7 +76,7 @@ No public properties found in associated Apex controllers/extensions.
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `BeforeRenderHookController`
 
 ### Fields
 - No field dependencies detected

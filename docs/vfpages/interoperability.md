@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: interoperability
 
-The Visualforce page named 'interoperability' demonstrates how Lightning Web Components (LWC) can be integrated within Visualforce pages using Lightning Out. It allows users to interact with LWC by triggering methods and setting properties through buttons. The page includes an LWC and displays messages based on interactions, illustrating live updates in response to user actions.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to serve as a demonstration tool for developers, showcasing the interoperability between Visualforce and Lightning Web Components, thereby facilitating the use of modern web components within Salesforce's legacy Visualforce framework.
+No purpose found.
 
 
 
@@ -52,6 +52,12 @@ No public methods found in associated Apex controllers/extensions.
 ### Buttons
 - No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
 
+</details>
+
+<details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
 </details>
 
 <details>

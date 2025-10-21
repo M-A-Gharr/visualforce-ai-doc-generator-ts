@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: tabs
 
-The Visualforce page 'tabs' displays a tabbed interface with three categories related to agricultural services, specifically irrigation systems, organic crops, and soils, each detailing a time frame and cost associated with the service.
+No overview found.
 
 ### Purpose of the Page
-The main business function of the page is to provide users with a user-friendly interface for comparing different agricultural service offerings based on time and cost.
+No purpose found.
 
 
 
@@ -52,6 +52,12 @@ No public methods found in associated Apex controllers/extensions.
 ### Buttons
 - No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
 
+</details>
+
+<details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
 </details>
 
 <details>

@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: toolbar
 
-The 'toolbar' Visualforce page provides a navigation toolbar with links to Salesforce and its developer site, along with a search input field and button positioned on the right.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to facilitate navigation to important Salesforce resources while offering a search feature to enhance user accessibility and efficiency.
+No purpose found.
 
 
 
@@ -52,6 +52,12 @@ No public methods found in associated Apex controllers/extensions.
 ### Buttons
 - No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
 
+</details>
+
+<details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
 </details>
 
 <details>

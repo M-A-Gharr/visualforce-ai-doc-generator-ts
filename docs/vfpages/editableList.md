@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: editableList
 
-The editableList Visualforce page allows users to view and edit details for multiple Account records simultaneously. It contains a form that displays account fields such as Name, Type, Phone, and Number of Employees in a tabular format, enabling inline editing of these fields.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to facilitate the bulk editing of Account records, allowing users to efficiently update multiple account details and save or cancel their changes.
+No purpose found.
 
 
 
@@ -61,6 +61,12 @@ The page has buttons/links linked to the following actions:
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -73,7 +79,7 @@ The page has buttons/links linked to the following actions:
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
 
 ### Fields
 - No field dependencies detected

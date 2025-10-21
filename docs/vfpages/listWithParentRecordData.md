@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: listWithParentRecordData
 
-The 'listWithParentRecordData' Visualforce page displays a list of Account records in a table format, showing specific fields such as Name, Type, Phone, and the Owner's Name.
+No overview found.
 
 ### Purpose of the Page
-The main business function of this page is to provide users with an easily accessible overview of Account details, allowing for efficient review and management of customer relationships.
+No purpose found.
 
 
 
@@ -55,6 +55,12 @@ No public methods found in associated Apex controllers/extensions.
 </details>
 
 <details>
+<summary>Page Blocks</summary>
+## Page Blocks on the Page
+No `apex:pageBlock` components detected.
+</details>
+
+<details>
 <summary>AJAX Interactions</summary>
 
 - No `apex:actionSupport` components detected
@@ -67,7 +73,7 @@ No public methods found in associated Apex controllers/extensions.
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- `Account`
 
 ### Fields
 - No field dependencies detected
