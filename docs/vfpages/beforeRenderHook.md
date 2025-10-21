@@ -38,8 +38,7 @@ No public properties found in associated Apex controllers/extensions.
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 | ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `populateCourses` | `void` | `()` | `public` | `None` |  |
-| `populateCourses` | `void` | `()` | `public` | `None` |  |
+| `populateCourses` | `void` | `()` | `` | `None` |  |
 
 </details>
 

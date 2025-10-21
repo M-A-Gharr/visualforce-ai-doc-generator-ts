@@ -25,7 +25,7 @@ export interface VfPageInfo {
     actionSupports: any[];
     outputPanels: any[];
     pageBlocksAI: any[];
-    dependencies: { objects: string[]; fields: string[]; components: string[] };
+    dependencies: { objects: string[]; detailedfields: string[]; components: string[] };
     scripts: any[];
 }
 
@@ -175,7 +175,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
 
     // Dependencies
     const detectedObjects: Set<string> = new Set();
-    const detectedFields: Set<string> = new Set();
+    const detectedDetailedFields: Set<string> = new Set();
 
     if (standardController) {
         detectedObjects.add(standardController);
@@ -192,7 +192,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
     let bindingMatch;
     while ((bindingMatch = bindingRegex.exec(content)) !== null) {
         const fullBindingPath = bindingMatch[1];
-        detectedFields.add(fullBindingPath);
+        detectedDetailedFields.add(fullBindingPath);
         const parts = fullBindingPath.split('.');
         const rootIdentifier = parts[0];
 
@@ -202,7 +202,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
                 if (rootIdentifier === '$User') {
                     detectedObjects.add('User');
                 } else if (rootIdentifier === '$CurrentPage') {
-                    detectedObjects.add('CurrentPageContext');
+                    detectedObjects.add('CurrentPage');
                 }
             } else {
                 if (rootIdentifier[0] && rootIdentifier[0].toUpperCase() === rootIdentifier[0]) {
@@ -241,8 +241,8 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         standardController,
         customController,
         extensions,
-        properties,
-        methods,
+        properties: uniqueProperties,
+        methods: uniqueMethods,
         pageStructure,
         overview,
         purpose,
@@ -253,7 +253,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         pageBlocksAI: pageBlocks,
         dependencies: {
             objects: Array.from(detectedObjects),
-            fields: Array.from(detectedFields),
+            detailedfields: Array.from(detectedDetailedFields),
             components: Array.from(new Set(customComponentMatches)),
         },
         scripts,

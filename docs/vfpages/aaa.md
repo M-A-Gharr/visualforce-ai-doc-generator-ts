@@ -82,7 +82,7 @@ The page includes `apex:actionSupport` components:
 ### Objects
 - `Account`
 - `User`
-- `CurrentPageContext`
+- `CurrentPage`
 - `Contact`
 
 ### Fields

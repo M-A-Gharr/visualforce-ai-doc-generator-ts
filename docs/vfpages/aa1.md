@@ -39,22 +39,14 @@ No public properties found in associated Apex controllers/extensions.
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 | ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` |  |
-| `isValid` | `Boolean` | `()` | `public` | `None` |  |
-| `doSomethingInner` | `void` | `()` | `public` | `None` |  |
-| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `public` | `None` |  |
-| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` |  |
-| `isValid` | `Boolean` | `()` | `public` | `None` |  |
-| `doSomethingInner` | `void` | `()` | `public` | `None` |  |
-| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `public` | `None` |  |
-| `fetchContactDetails` | `void` | `()` | `public` | `None` |  |
-| `internalMethod` | `void` | `()` | `private` | `None` |  |
-| `getStaticInfo` | `String` | `()` | `public` | `static` |  |
-| `fetchContactDetails` | `void` | `()` | `public` | `None` |  |
-| `internalMethod` | `void` | `()` | `private` | `None` |  |
-| `getStaticInfo` | `String` | `()` | `public` | `static` |  |
-| `doSomethingElse` | `PageReference` | `()` | `public` | `None` |  |
-| `doSomethingElse` | `PageReference` | `()` | `public` | `None` |  |
+| `saveAccount` | `PageReference` | `(String accountId)` | `` | `None` |  |
+| `isValid` | `Boolean` | `()` | `` | `None` |  |
+| `doSomethingInner` | `void` | `()` | `` | `None` |  |
+| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `` | `None` |  |
+| `fetchContactDetails` | `void` | `()` | `` | `None` |  |
+| `internalMethod` | `void` | `()` | `` | `None` |  |
+| `getStaticInfo` | `String` | `()` | `` | `None` |  |
+| `doSomethingElse` | `PageReference` | `()` | `` | `None` |  |
 
 </details>
 
@@ -109,7 +101,7 @@ The page includes `apex:actionSupport` components:
 - `MyExtensionController`
 - `AnotherExtension`
 - `User`
-- `CurrentPageContext`
+- `CurrentPage`
 
 ### Fields
 - `$User`

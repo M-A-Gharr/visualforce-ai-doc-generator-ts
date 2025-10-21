@@ -38,10 +38,8 @@ No public properties found in associated Apex controllers/extensions.
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 | ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `createCity` | `void` | `()` | `public` | `None` |  |
-| `cancel` | `PageReference` | `()` | `public` | `None` |  |
-| `createCity` | `void` | `()` | `public` | `None` |  |
-| `cancel` | `PageReference` | `()` | `public` | `None` |  |
+| `createCity` | `void` | `()` | `` | `None` |  |
+| `cancel` | `PageReference` | `()` | `` | `None` |  |
 
 </details>
 

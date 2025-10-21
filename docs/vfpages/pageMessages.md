@@ -38,8 +38,7 @@ No public properties found in associated Apex controllers/extensions.
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 | ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `callApex` | `void` | `()` | `public` | `None` |  |
-| `callApex` | `void` | `()` | `public` | `None` |  |
+| `callApex` | `void` | `()` | `` | `None` |  |
 
 </details>
 

@@ -37,16 +37,12 @@ Allow users to browse accounts with pagination.
 | ------ | ------ | ------------ | ----------- | ------------- |
 | `records` | `List<Account>` | `public` | `AuraEnabled` |  |
 | `nextPageToken` | `Integer` | `public` | `AuraEnabled` |  |
-| `records` | `List<Account>` | `public` | `AuraEnabled` |  |
-| `nextPageToken` | `Integer` | `public` | `AuraEnabled` |  |
 
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 | ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
 | `getAccountsPaginated` | `PaginatedAccounts` | `(Integer pageSize,
-        Integer pageToken)` | `public` | `static` |  |
-| `getAccountsPaginated` | `PaginatedAccounts` | `(Integer pageSize,
-        Integer pageToken)` | `public` | `static` |  |
+        Integer pageToken)` | `` | `None` |  |
 
 </details>
 
