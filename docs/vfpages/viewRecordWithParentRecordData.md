@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: viewRecordWithParentRecordData
 
-No overview found.
+The Visualforce page 'viewRecordWithParentRecordData' displays the details of an Account record, including its name, type, phone number, and the name of the owner of the account.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to provide users with an easy-to-read summary of key information related to an Account, enhancing data visibility and management in Salesforce.
 
 
 

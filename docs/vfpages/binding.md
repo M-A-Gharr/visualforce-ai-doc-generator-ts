@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: binding
 
-No overview found.
+This Visualforce page allows users to input a course name, and it dynamically displays the entered course name using an action support event that re-renders a specific panel.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of the page is to capture and display course information as it is entered by the user.
 
 
 

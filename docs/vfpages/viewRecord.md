@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: viewRecord
 
-No overview found.
+The Visualforce page 'viewRecord' displays details of an Account record, including fields such as Name, Type, Phone, and Number of Employees.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to provide users with a clear and organized view of specific Account information.
 
 
 

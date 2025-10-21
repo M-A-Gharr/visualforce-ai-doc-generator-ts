@@ -5,10 +5,10 @@
 
 ## Visualforce Page Overview: toolbar
 
-No overview found.
+The 'toolbar' Visualforce page provides a user interface element that displays navigation links and a search functionality. It consists of two groups: one with links to Salesforce and developer resources, and another on the right for a search input and a search button.
 
 ### Purpose of the Page
-No purpose found.
+The main business function of this page is to enhance user navigation and interaction by offering quick access to important links and a search feature within the Salesforce application.
 
 
 
