@@ -86,8 +86,12 @@ The page includes `apex:actionSupport` components:
 - `Contact`
 
 ### Fields
-- `$User`
-- `$CurrentPage`
+- `$User.FirstName`
+- `account.name`
+- `account.Contacts`
+- `contact.id`
+- `contact.Name`
+- `$CurrentPage.parameters.cid`
 
 ### Custom Components
 - No custom components detected

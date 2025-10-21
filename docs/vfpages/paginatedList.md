@@ -87,7 +87,15 @@ No `apex:pageBlock` components detected.
 - `PaginatedListControllerLwc`
 
 ### Fields
-- No field dependencies detected
+- `accounts`
+- `account.Name`
+- `account.Type`
+- `account.Phone`
+- `account.NumberOfEmployees`
+- `first`
+- `previous`
+- `next`
+- `last`
 
 ### Custom Components
 - No custom components detected

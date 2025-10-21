@@ -104,12 +104,23 @@ The page includes `apex:actionSupport` components:
 - `CurrentPage`
 
 ### Fields
-- `$User`
-- `Account`
-- `$CurrentPage`
-- `$Organization`
-- `MyExtensionController`
-- `MyCustomController`
+- `$User.FirstName`
+- `Account.Name`
+- `Account.Contacts.size`
+- `$CurrentPage.parameters.recordId`
+- `$Organization.Name`
+- `myCustomController.myStringProperty`
+- `MyExtensionController.myBooleanProperty`
+- `myCustomController.selectedOption`
+- `myCustomController.saveAccount`
+- `Account.delete`
+- `Account.Contacts`
+- `MyExtensionController.fetchContactDetails`
+- `con.Id`
+- `MyExtensionController.selectedContactId`
+- `con.Name`
+- `con.Title`
+- `MyCustomController.myStringProperty`
 
 ### Custom Components
 - `<c:MyCustomHeader>`

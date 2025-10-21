@@ -82,7 +82,10 @@ No `apex:pageBlock` components detected.
 - `CreateMixedRecordsApexController`
 
 ### Fields
-- No field dependencies detected
+- `createContactAndOpportunity`
+- `contactFirstName`
+- `contactLastName`
+- `opportunityName`
 
 ### Custom Components
 - No custom components detected

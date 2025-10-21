@@ -78,7 +78,9 @@ No `apex:pageBlock` components detected.
 - `BeforeRenderHookController`
 
 ### Fields
-- No field dependencies detected
+- `populateCourses`
+- `courses`
+- `course`
 
 ### Custom Components
 - No custom components detected

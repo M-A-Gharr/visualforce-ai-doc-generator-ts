@@ -79,7 +79,13 @@ No `apex:pageBlock` components detected.
 - `ViewRelatedRecordsController`
 
 ### Fields
-- No field dependencies detected
+- `getRelatedContacts`
+- `contacts`
+- `contact.Id`
+- `contact.Name`
+- `contact.Title`
+- `contact.Phone`
+- `contact.Email`
 
 ### Custom Components
 - No custom components detected

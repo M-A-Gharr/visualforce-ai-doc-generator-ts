@@ -76,7 +76,11 @@ No `apex:pageBlock` components detected.
 - `Account`
 
 ### Fields
-- No field dependencies detected
+- `accounts`
+- `account.Name`
+- `account.Type`
+- `account.Phone`
+- `account.Owner.Name`
 
 ### Custom Components
 - No custom components detected

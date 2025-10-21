@@ -78,7 +78,8 @@ No `apex:pageBlock` components detected.
 - `PageMessagesDataRetrievalController`
 
 ### Fields
-- No field dependencies detected
+- `getAccounts`
+- `accounts`
 
 ### Custom Components
 - No custom components detected

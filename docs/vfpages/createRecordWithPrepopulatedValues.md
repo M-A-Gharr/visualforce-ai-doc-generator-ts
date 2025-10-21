@@ -83,7 +83,12 @@ No `apex:pageBlock` components detected.
 - `CreateRecordPrepopulatedController`
 
 ### Fields
-- No field dependencies detected
+- `save`
+- `cancel`
+- `account.Name`
+- `account.Type`
+- `account.Phone`
+- `account.NumberOfEmployees`
 
 ### Custom Components
 - No custom components detected

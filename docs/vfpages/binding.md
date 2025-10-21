@@ -84,7 +84,7 @@ The page includes `apex:actionSupport` components:
 - `BindingController`
 
 ### Fields
-- No field dependencies detected
+- `courseName`
 
 ### Custom Components
 - No custom components detected

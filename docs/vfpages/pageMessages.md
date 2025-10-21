@@ -79,7 +79,7 @@ No `apex:pageBlock` components detected.
 - `PageMessagesController`
 
 ### Fields
-- No field dependencies detected
+- `callApex`
 
 ### Custom Components
 - No custom components detected

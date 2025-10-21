@@ -188,7 +188,7 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         extensions.forEach(ext => detectedObjects.add(ext));
     }
 
-    const bindingRegex = /\{!(\$?[A-Z][A-Za-z0-9_]*)(?:\.(\w+))?(?:\.(\w+))?(?:\.(\w+))?\}/g;
+    const bindingRegex = /\{!([a-zA-Z0-9_$][a-zA-Z0-9_.]*)\}/g;
     let bindingMatch;
     while ((bindingMatch = bindingRegex.exec(content)) !== null) {
         const fullBindingPath = bindingMatch[1];

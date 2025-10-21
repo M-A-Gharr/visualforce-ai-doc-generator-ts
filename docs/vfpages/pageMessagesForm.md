@@ -82,7 +82,9 @@ No `apex:pageBlock` components detected.
 - `PageMessagesFormController`
 
 ### Fields
-- No field dependencies detected
+- `cityName`
+- `cancel`
+- `createCity`
 
 ### Custom Components
 - No custom components detected
