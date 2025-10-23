@@ -1,11 +1,13 @@
 # Visualforce Page: aa1
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: aa1
 
-This page demonstrates various Visualforce components, controllers,
+This page demonstrates various Visualforce components, controllers, extensions, and data bindings to test a documentation generator.
 
 ### Purpose of the Page
 To serve as a comprehensive test case for a Visualforce documentation parser.
@@ -17,6 +19,8 @@ To serve as a comprehensive test case for a Visualforce documentation parser.
 - **Label**: Comprehensive Test Page
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -30,66 +34,128 @@ To serve as a comprehensive test case for a Visualforce documentation parser.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+_No public properties found in associated Apex controllers/extensions._
+
+---
 
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `saveAccount` | `PageReference` | `(String accountId)` | `` | `None` |  |
-| `isValid` | `Boolean` | `()` | `` | `None` |  |
-| `doSomethingInner` | `void` | `()` | `` | `None` |  |
-| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `` | `None` |  |
-| `fetchContactDetails` | `void` | `()` | `` | `None` |  |
-| `getStaticInfo` | `String` | `()` | `` | `None` |  |
-| `doSomethingElse` | `PageReference` | `()` | `` | `None` |  |
+|------|--------------|-------------|-------------|------------|--------------|
+| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` | @description This is the custom controller for TestPage.
+  It handles logic related to account data.
+ /
+public with sharing class MyCustomController {
+
+    // Properties
+    public String myStringProperty { get; set; }
+    public String selectedOption { get; set; }
+    public Integer myIntegerProperty { get; private set; }
+    private String privateProperty = 'secret'; // Should not be documented
+
+    // Constructor
+    public MyCustomController() {
+        this.myStringProperty = 'Default Value';
+        this.selectedOption = 'Option1';
+        this.myIntegerProperty = 100;
+        System.debug('MyCustomController initialized.');
+    }
+
+    /
+      @description Saves the current Account record.
+      @param accountId The ID of the account to save. (This is just an example, usually passed implicitly)
+      @return PageReference null to stay on the same page. |
+| `fetchContactDetails` | `void` | `()` | `public` | `None` | @description Extension controller for additional functionalities.
+  @summary Handles contact details and boolean property.
+ /
+public with sharing class MyExtensionController {
+
+    private final ApexPages.StandardController stdController;
+
+    // Properties
+    public Boolean myBooleanProperty { get; set; }
+    public Id selectedContactId { get; set; }
+    public Contact currentContact { get; private set; }
+
+    // Constructor
+    public MyExtensionController(ApexPages.StandardController controller) {
+        this.stdController = controller;
+        this.myBooleanProperty = true;
+        this.selectedContactId = null;
+        System.debug('MyExtensionController initialized for ' + controller.getId());
+    }
+
+    /
+      @description Fetches details for the selected contact ID.
+      This method is called via actionSupport.
+      @return void |
+| `doSomethingElse` | `PageReference` | `()` | `public` | `None` | @description A second extension for TestPage.
+ /
+public with sharing class AnotherExtension {
+
+    private final ApexPages.StandardController stdController;
+
+    public String anotherExtensionProperty { get; set; }
+
+    public AnotherExtension(ApexPages.StandardController controller) {
+        this.stdController = controller;
+        this.anotherExtensionProperty = 'Hello from another extension!';
+        System.debug('AnotherExtension initialized.');
+    }
+
+    /
+      @description A simple action method from the second extension.
+      @return null |
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-The page utilizes the following input bindings/fields:
+The page utilizes the following input bindings:
 - `{!Account.Name}`
 - `{!myCustomController.myStringProperty}`
 - `{!MyExtensionController.myBooleanProperty}`
-- `{!myCustomController.selectedOption}`
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!myCustomController.saveAccount}`
-- `{!Account.delete}`
 
 </details>
+
+---
 
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-The page includes `apex:actionSupport` components:
-- **Event**: `onmouseover`
-  
-  - **Action**: `{!MyExtensionController.fetchContactDetails}`
-  - **Status**: `loadingStatus`
+- No `apex:actionSupport` components detected.
 
-### Output Panels
-- **ID**: `contactDetailPanel`
-  - **Layout**: block
-  - **Content Preview**: "<h3>Contact Details (AJAX Loaded)      <p>Details for contact ID: {!MyExtensionController.selectedContactId}"
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -99,10 +165,8 @@ The page includes `apex:actionSupport` components:
 - `MyCustomController`
 - `MyExtensionController`
 - `AnotherExtension`
-- `User`
-- `CurrentPage`
-- `Organization`
-- `Contact`
+- `myCustomController`
+- `con`
 
 ### Fields
 - `$User.FirstName`
@@ -127,14 +191,6 @@ The page includes `apex:actionSupport` components:
 - `<c:MyCustomHeader>`
 
 ### Scripts
-- inline: `
-        function greet() {
-            console.log('Hello from a script on {!Account.Name} page!');
-            // This is a comment inside a script
-            var myVar = '{!MyCustomController.myStringProperty}';
-        }
-        window.onload = greet;
-    `
-- inline: ``
+- No script tags detected.
 
 </details>

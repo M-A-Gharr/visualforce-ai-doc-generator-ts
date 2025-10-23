@@ -1,14 +1,16 @@
 # Visualforce Page: binding
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: binding
 
-No overview found.
+This Visualforce page allows users to input a course name, which is then displayed dynamically as they type.
 
 ### Purpose of the Page
-No purpose found.
+The purpose of this page is to demonstrate data binding in Visualforce, where changes to the input field update the output panel in real time.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Binding
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,37 +33,51 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+| Name | Type | Visibility | Modifiers | Description |
+|------|------|-------------|------------|--------------|
+| `courseName` | `String` | `public` | `None` | A string property that holds the name of the course entered by the user. |
+
+---
 
 ## Methods
-No public methods found in associated Apex controllers/extensions.
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-The page utilizes the following input bindings/fields:
+The page utilizes the following input bindings:
 - `{!courseName}`
 
 ### Buttons
-- No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
+- No actionable buttons or links detected
 
 </details>
+
+---
 
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
@@ -72,10 +90,12 @@ The page includes `apex:actionSupport` components:
 
 ### Output Panels
 - **ID**: `courseInfo`
-  - **Layout**: block (default)
-  - **Content Preview**: "No content detected within the panel."
+  - **Layout**: `block (default)`
+  - **Content Preview**: "No content."
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -87,9 +107,9 @@ The page includes `apex:actionSupport` components:
 - `courseName`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

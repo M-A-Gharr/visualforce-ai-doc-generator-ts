@@ -1,5 +1,7 @@
 # Visualforce Page: paginatedList
 
+---
+
 <details>
 <summary>Overview</summary>
 
@@ -18,6 +20,8 @@ Allow users to browse accounts with pagination.
 
 </details>
 
+---
+
 <details>
 <summary>Controllers / Extensions</summary>
 
@@ -29,34 +33,38 @@ Allow users to browse accounts with pagination.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
 | Name | Type | Visibility | Modifiers | Description |
-| ------ | ------ | ------------ | ----------- | ------------- |
-| `records` | `List<Account>` | `public` | `AuraEnabled` |  |
-| `nextPageToken` | `Integer` | `public` | `AuraEnabled` |  |
+|------|------|-------------|------------|--------------|
+| `PaginatedAccounts` | `class` | `public` | `None` | No description. |
+| `records` | `List<Account>` | `public` | `None` | A list of account records being displayed in the paginated view. |
+| `nextPageToken` | `Integer` | `public` | `None` | A token that facilitates fetching the next set of records for pagination. |
+
+---
 
 ## Methods
-| Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `getAccountsPaginated` | `PaginatedAccounts` | `(Integer pageSize,
-        Integer pageToken)` | `` | `None` |  |
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-- No input bindings (`apex:inputField`, `apex:inputText`, etc.) detected
+- No input bindings detected
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!first}`
 - `{!previous}`
 - `{!next}`
@@ -64,20 +72,28 @@ The page has buttons/links linked to the following actions:
 
 </details>
 
+---
+
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -98,9 +114,9 @@ No `apex:pageBlock` components detected.
 - `last`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

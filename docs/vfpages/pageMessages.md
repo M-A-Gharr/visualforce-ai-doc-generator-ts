@@ -1,14 +1,16 @@
 # Visualforce Page: pageMessages
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: pageMessages
 
-No overview found.
+The 'pageMessages' Visualforce page utilizes the PageMessagesController to display any user messages and feedback on the page. It includes a form that allows users to trigger an action.
 
 ### Purpose of the Page
-No purpose found.
+The purpose of this page is to provide an interface for users to receive messages and send a PDF document by clicking a button.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Page Messages
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,48 +33,60 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+_No public properties found in associated Apex controllers/extensions._
+
+---
 
 ## Methods
-| Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `callApex` | `void` | `()` | `` | `None` |  |
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-- No input bindings (`apex:inputField`, `apex:inputText`, etc.) detected
+- No input bindings detected
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!callApex}`
 
 </details>
 
+---
+
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -82,9 +98,9 @@ No `apex:pageBlock` components detected.
 - `callApex`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

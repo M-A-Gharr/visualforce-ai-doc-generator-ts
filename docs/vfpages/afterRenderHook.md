@@ -1,14 +1,16 @@
 # Visualforce Page: afterRenderHook
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: afterRenderHook
 
-No overview found.
+_No overview available._
 
 ### Purpose of the Page
-No purpose found.
+_No purpose available._
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: afterRenderHook
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,56 +33,68 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+_No public properties found in associated Apex controllers/extensions._
+
+---
 
 ## Methods
-| Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `populateCourses` | `void` | `()` | `` | `None` |  |
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-- No input bindings (`apex:inputField`, `apex:inputText`, etc.) detected
+- No input bindings detected
 
 ### Buttons
-- No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
+- No actionable buttons or links detected
 
 </details>
+
+---
 
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-### Output Panels
-- **ID**: `coursesPanel`
-  - **Layout**: block (default)
-  - **Content Preview**: "<p>{!course}"
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
 - `BeforeRenderHookController`
+- `courses`
+- `course`
+- `populateCourses`
 
 ### Fields
 - `courses`
@@ -86,13 +102,9 @@ No `apex:pageBlock` components detected.
 - `populateCourses`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- inline: `
-        window.onload = () => {
-            populateCoursesAction();
-        };
-    `
+- No script tags detected.
 
 </details>

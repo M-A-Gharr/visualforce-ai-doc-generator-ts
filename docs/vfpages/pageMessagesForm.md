@@ -1,14 +1,16 @@
 # Visualforce Page: pageMessagesForm
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: pageMessagesForm
 
-No overview found.
+The 'pageMessagesForm' is a Visualforce page that incorporates user input and displays messages based on the processing results.
 
 ### Purpose of the Page
-No purpose found.
+Its purpose is to allow users to input a city name, provide feedback through page messages, and manage their actions with 'Save' and 'Cancel' buttons.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Page Messages Form
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,51 +33,64 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+| Name | Type | Visibility | Modifiers | Description |
+|------|------|-------------|------------|--------------|
+| `cityName` | `String` | `public` | `None` | A string that represents the name of the city entered by the user. |
+
+---
 
 ## Methods
-| Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `createCity` | `void` | `()` | `` | `None` |  |
-| `cancel` | `PageReference` | `()` | `` | `None` |  |
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-The page utilizes the following input bindings/fields:
+The page utilizes the following input bindings:
 - `{!cityName}`
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!cancel}`
 - `{!createCity}`
 
 </details>
 
+---
+
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+- **Title**: `Error Handling`
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -87,9 +104,9 @@ No `apex:pageBlock` components detected.
 - `createCity`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

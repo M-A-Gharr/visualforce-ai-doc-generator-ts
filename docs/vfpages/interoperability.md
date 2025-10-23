@@ -1,14 +1,16 @@
 # Visualforce Page: interoperability
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: interoperability
 
-No overview found.
+The Interoperability Visualforce page demonstrates how to integrate Lightning web components within Visualforce pages using Lightning Out.
 
 ### Purpose of the Page
-No purpose found.
+Its purpose is to guide developers through the steps to include Lightning components, create event listeners, and interact with these components from Visualforce.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Interoperability
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,60 +33,74 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+_No public properties found in associated Apex controllers/extensions._
+
+---
 
 ## Methods
-No public methods found in associated Apex controllers/extensions.
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-- No input bindings (`apex:inputField`, `apex:inputText`, etc.) detected
+- No input bindings detected
 
 ### Buttons
-- No button actions (`apex:commandButton`, `apex:button`, `apex:commandLink`) detected
+- No actionable buttons or links detected
 
 </details>
+
+---
 
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+_No `apex:pageBlock` components detected._
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
 
 ### Objects
-- No SObject dependencies detected
+- No SObject dependencies detected.
 
 ### Fields
-- No field dependencies detected
+- No field dependencies detected.
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- inline: `
+- **inline**: `
         var timesListened = 1;
 
         $Lightning.use('c:LWCContainerApp', function () {

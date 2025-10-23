@@ -1,14 +1,16 @@
 # Visualforce Page: editRecord
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: editRecord
 
-No overview found.
+The 'editRecord' page is a Visualforce page designed to allow users to edit the details of an Account object in Salesforce.
 
 ### Purpose of the Page
-No purpose found.
+Its purpose is to provide a user-friendly interface for viewing and updating account information, including fields like Name, Type, Phone, and Number of Employees.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Edit Record
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,52 +33,66 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+_No public properties found in associated Apex controllers/extensions._
+
+---
 
 ## Methods
-No public methods found in associated Apex controllers/extensions.
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-The page utilizes the following input bindings/fields:
+The page utilizes the following input bindings:
 - `{!account.Name}`
 - `{!account.Type}`
 - `{!account.Phone}`
 - `{!account.NumberOfEmployees}`
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!save}`
 - `{!quicksave}`
 - `{!cancel}`
 
 </details>
 
+---
+
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+- **Title**: `Account details`
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -92,9 +110,9 @@ No `apex:pageBlock` components detected.
 - `account.NumberOfEmployees`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

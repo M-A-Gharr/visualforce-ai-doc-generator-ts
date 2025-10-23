@@ -1,37 +1,74 @@
-import { AiProvider, AiProviderResult } from "./AiProvider";
+import { AiProvider, AiProviderResult, MemberDescriptionResult } from "./AiProvider";
+import { VfProperty, VfMethod } from "../utils/types";
 
 export class AiManager {
-    providers: AiProvider[];
+  private providers: AiProvider[];
 
-    constructor(providers: AiProvider[]) {
-        this.providers = providers;
-    }
+  constructor(providers: AiProvider[]) {
+    this.providers = providers;
+  }
 
-    /**
-    * Generate overview and purpose using the first available AI provider
-    * @param pageName Name of the Visualforce page
-    * @param content VF page content
-    */
-    async generateOverviewPurpose(pageName: string, content: string): Promise<AiProviderResult> {
-        // let lastError: Error | null = null;
+  public get hasMemberGenerator(): boolean {
+    return this.providers.some(p => typeof p.generateMemberDescriptions === "function");
+  }
 
-        for (const provider of this.providers) {
-            try {
-                const result = await provider.generateOverviewPurpose(pageName, content);
-
-                if ((result?.overview && result.overview.trim()) || (result?.purpose && result.purpose.trim())) {
-                    console.log(`✅ AI Provider used: ${provider.name}`);
-                    return result;
-                }
-            } catch (err: any) {
-                console.warn(`❌ Provider ${provider.name} failed: ${err.message}`);
-                // lastError = err;
-            }
+  public async generateOverviewPurpose(pageName: string, content: string): Promise<AiProviderResult> {
+    for (const provider of this.providers) {
+      try {
+        const result = await provider.generateOverviewPurpose(pageName, content);
+        if (result && (result.overview || result.purpose)) {
+          return {
+            overview: result.overview || "",
+            purpose: result.purpose || "",
+          };
         }
-        // console.error("⚠️ All AI providers failed. Returning default message.");
-        return {
-            overview: "",
-            purpose: "",
-        };
+      } catch (err) {
+        console.warn(`⚠️ [${provider.name}] failed to generate overview/purpose:`, err);
+      }
     }
+
+    return { overview: "", purpose: "" };
+  }
+
+  /**
+   * Enrich VfProperty & VfMethod arrays with AI descriptions.
+   */
+  public async enrichMembersWithDescriptions(
+    pageName: string,
+    properties: VfProperty[],
+    methods: VfMethod[]
+  ): Promise<void> {
+    for (const provider of this.providers) {
+      if (!provider.generateMemberDescriptions) continue;
+
+      try {
+        const result = await provider.generateMemberDescriptions(
+          pageName,
+          properties.map(p => p.name),
+          methods.map(m => m.name)
+        );
+
+        if (result) {
+          properties.forEach(p => {
+            p.descriptionAI = result.properties[p.name] || `Property ${p.name} of type ${p.type}.`;
+          });
+          methods.forEach(m => {
+            m.descriptionAI = result.methods[m.name] || `Method ${m.name} returns ${m.type} and takes (${m.parameters || ""}).`;
+          });
+
+          return; // Stop after first successful provider
+        }
+      } catch (err) {
+        console.warn(`⚠️ [${provider.name}] failed to generate member descriptions:`, err);
+      }
+    }
+
+    // Fallback for all members if no provider succeeded
+    properties.forEach(p => {
+      if (!p.descriptionAI) p.descriptionAI = `Property ${p.name} of type ${p.type}.`;
+    });
+    methods.forEach(m => {
+      if (!m.descriptionAI) m.descriptionAI = `Method ${m.name} returns ${m.type} and takes (${m.parameters || ""}).`;
+    });
+  }
 }

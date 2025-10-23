@@ -1,0 +1,263 @@
+{
+  "aa1": {
+    "hash": "25ef61960ab3979664bb0d8f743420c03b84a38610d7f80fd02e066ec9197196",
+    "overviewPurpose": {
+      "overview": "This page demonstrates various Visualforce components, controllers, extensions, and data bindings to test a documentation generator.",
+      "purpose": "To serve as a comprehensive test case for a Visualforce documentation parser."
+    },
+    "members": {
+      "properties": {
+        "myStringProperty": "A string property used for custom input, bound to an inputText component.",
+        "selectedOption": "Represents the selected option from the dropdown selectList.",
+        "myIntegerProperty": "An integer property for storing numeric values, used in the controller.",
+        "privateProperty": "A private property for internal use within the controller or extension.",
+        "InnerHelper": "An inner class or property that may provide additional functionality or structure.",
+        "helperProperty": "A reference to a helper class or utility method to assist with operations.",
+        "myBooleanProperty": "A boolean property that indicates a true/false condition, bound to an inputCheckbox.",
+        "selectedContactId": "Holds the ID of the currently selected contact from the associated contacts table.",
+        "currentContact": "An object representing the contact currently being worked with in the context.",
+        "anotherExtensionProperty": "An additional property from another extension to support functionality."
+      },
+      "methods": {
+        "saveAccount": "Saves the current Account data to the database when called.",
+        "fetchContactDetails": "Fetches and updates contact details based on the selected contact ID."
+      }
+    }
+  },
+  "aaa": {
+    "hash": "01b3efa32bfbd75ddd77c5a37bd0ed8270a222bafa84f52be350820fbcea170d",
+    "overviewPurpose": {
+      "overview": "This Visualforce page displays a list of contacts associated with a specific account, welcoming users with a personalized message.",
+      "purpose": "The purpose of this page is to allow users to view and interact with the contacts from the selected account, providing details on demand when a contact's name is hovered over."
+    }
+  },
+  "afterRenderHook": {
+    "hash": "1335736b49a3295e5c2f7b8b940ffd4825d1ef3e78b79f3e5005ed6b5e507766",
+    "overviewPurpose": {
+      "overview": "The 'afterRenderHook' page is a Visualforce page that dynamically populates a list of courses after it is rendered. It uses an action function to invoke a controller method and updates the output panel with the course data.",
+      "purpose": "The purpose of this page is to demonstrate how to use an action function in Visualforce to asynchronously fetch and update content on a webpage after it has been rendered, enhancing user experience by loading content dynamically."
+    },
+    "members": {
+      "properties": {
+        "courses": "A list of course names or objects that will be displayed in the output panel."
+      },
+      "methods": {
+        "populateCourses": "A method in the controller that retrieves and populates the courses data."
+      }
+    }
+  },
+  "basicListGetListUi": {
+    "hash": "93846fffe5d63e29975332453a8d8329554980efe5f5f1119da06a2bb6b64665",
+    "overviewPurpose": {
+      "overview": "The 'basicListGetListUi' Visualforce page is designed to display a list of Account records in a table format using a standard controller.",
+      "purpose": "Its primary purpose is to provide a user-friendly interface for viewing key attributes of each Account, including Name, Type, Phone, and Number of Employees."
+    }
+  },
+  "beforeRenderHook": {
+    "hash": "c143ff9ebe35c16e5ffa8f7eeaf32321f2c8c09f44bd817fb6c5dcbc4f948260",
+    "overviewPurpose": {
+      "overview": "The 'beforeRenderHook' Visualforce page utilizes the BeforeRenderHookController to manage the rendering of course data dynamically, ensuring that relevant information is populated prior to display.",
+      "purpose": "The purpose of this page is to retrieve and present a list of courses to the user, leveraging the action method to populate data before the page is rendered."
+    },
+    "members": {
+      "properties": {
+        "courses": "A list of course names or objects that can be rendered on the Visualforce page."
+      },
+      "methods": {
+        "populateCourses": "A method invoked before rendering the page to populate the 'courses' property with data."
+      }
+    }
+  },
+  "binding": {
+    "hash": "c1c6724b7f5bb27190fa56c6c05ef7d9e7291e0fdeac50b2353e30d65796da7b",
+    "overviewPurpose": {
+      "overview": "This Visualforce page allows users to input a course name, which is then displayed dynamically as they type.",
+      "purpose": "The purpose of this page is to demonstrate data binding in Visualforce, where changes to the input field update the output panel in real time."
+    },
+    "members": {
+      "properties": {
+        "courseName": "A string property that holds the name of the course entered by the user."
+      },
+      "methods": {}
+    }
+  },
+  "createMixedRecords": {
+    "hash": "c83bf012ef0e38f14876dd17260c75c211454d7460d06017d68fcdd3d33b9072",
+    "overviewPurpose": {
+      "overview": "The 'createMixedRecords' Visualforce page allows users to input details for creating a new contact and a new opportunity simultaneously.",
+      "purpose": "Its purpose is to simplify the data entry process by providing a single form to capture relevant information needed to create both records in Salesforce."
+    },
+    "members": {
+      "properties": {
+        "contactFirstName": "The first name of the contact to be created.",
+        "contactLastName": "The last name of the contact to be created.",
+        "opportunityName": "The name of the opportunity to be created."
+      },
+      "methods": {
+        "createContactAndOpportunity": "Creates a new contact and opportunity based on the input values provided in the form."
+      }
+    }
+  },
+  "createRecordWithPrepopulatedValues": {
+    "hash": "f2b68867e4df2ffcbadd22726e23a5baf766ab9fb8e43b85fa0357b952a05e2d",
+    "overviewPurpose": {
+      "overview": "The 'createRecordWithPrepopulatedValues' Visualforce page is designed to facilitate the creation of new Account records in Salesforce, pre-populating certain fields for user convenience.",
+      "purpose": "Its main purpose is to provide an intuitive user interface where users can easily input or modify Account details, enhancing the efficiency of record creation."
+    }
+  },
+  "editRecord": {
+    "hash": "b89e736c832422ac46c7e7f336b4730a84047877c2f91fec74ae84acd254c14d",
+    "overviewPurpose": {
+      "overview": "The 'editRecord' page is a Visualforce page designed to allow users to edit the details of an Account object in Salesforce.",
+      "purpose": "Its purpose is to provide a user-friendly interface for viewing and updating account information, including fields like Name, Type, Phone, and Number of Employees."
+    }
+  },
+  "editableList": {
+    "hash": "fe69df3a5a2ca7c26d715a65c308e616d33b10bf63f3d9adb9b4d4ac2fd69046",
+    "overviewPurpose": {
+      "overview": "The 'editableList' page is a Visualforce page designed to display and manage a list of Account records in a tabular format with editable fields.",
+      "purpose": "Its purpose is to allow users to view, edit, and save multiple Account records simultaneously, enhancing productivity by enabling batch updates."
+    }
+  },
+  "interoperability": {
+    "hash": "074ee412056e06800a5b0e27302b10a1efcebc68d15e92ba1ff9a8a63d2aa4ca",
+    "overviewPurpose": {
+      "overview": "The Interoperability Visualforce page demonstrates how to integrate Lightning web components within Visualforce pages using Lightning Out.",
+      "purpose": "Its purpose is to guide developers through the steps to include Lightning components, create event listeners, and interact with these components from Visualforce."
+    }
+  },
+  "listRecordLinks": {
+    "hash": "d9854799a9469ecdc1b65e24af55a7cd715a46ed3facb293f85168a0b682dc1f",
+    "overviewPurpose": {
+      "overview": "The 'listRecordLinks' page displays a list of Account records with clickable names, along with additional details such as Type, Phone, and Number of Employees.",
+      "purpose": "The purpose of this page is to provide users with an easy-to-navigate table of Account records, allowing them to quickly access the details of each account by clicking on the account name."
+    }
+  },
+  "listWithParentRecordData": {
+    "hash": "6c9d5514af2b7b1d2cecd000cd030f75e2cbb33f53b645e096e5326d9d7f1d45",
+    "overviewPurpose": {
+      "overview": "The 'listWithParentRecordData' Visualforce page displays a table of Account records using a standard controller to access multiple account records efficiently.",
+      "purpose": "The purpose of this page is to provide users with a quick and organized view of key details of Accounts, including their Name, Type, Phone, and Owner information."
+    }
+  },
+  "pageBlocks": {
+    "hash": "05978551a763dfeb08828f448ba4395309c8389565d072efcfb9bfb46ad56bc4",
+    "overviewPurpose": {
+      "overview": "The page utilizes the 'apex:pageBlock' component to create a structured layout for displaying course details and instructor information.",
+      "purpose": "To organize and present information related to a course in a clear and accessible manner, enhancing user experience by categorizing content under distinct sections."
+    }
+  },
+  "pageMessages": {
+    "hash": "1892efa84f52b5547f53814e673129bd378fdc3153388f09a035551cd873d27e",
+    "overviewPurpose": {
+      "overview": "The 'pageMessages' Visualforce page utilizes the PageMessagesController to display any user messages and feedback on the page. It includes a form that allows users to trigger an action.",
+      "purpose": "The purpose of this page is to provide an interface for users to receive messages and send a PDF document by clicking a button."
+    }
+  },
+  "pageMessagesDataRetrieval": {
+    "hash": "1ca40c7cd3a3a85d19262b04cc2ea6a365a44805600bde11aba19753489630c9",
+    "overviewPurpose": {
+      "overview": "The 'pageMessagesDataRetrieval' Visualforce page displays messages and data related to account retrieval using the specified controller.",
+      "purpose": "Its primary purpose is to facilitate user interaction by showing messages generated during the retrieval process of account data."
+    }
+  },
+  "pageMessagesForm": {
+    "hash": "22734e0f2ee7beceb1b31cf87972dfe512506a7843275fb6caecbdc56c7ddc8d",
+    "overviewPurpose": {
+      "overview": "The 'pageMessagesForm' is a Visualforce page that incorporates user input and displays messages based on the processing results.",
+      "purpose": "Its purpose is to allow users to input a city name, provide feedback through page messages, and manage their actions with 'Save' and 'Cancel' buttons."
+    },
+    "members": {
+      "properties": {
+        "cityName": "A string that represents the name of the city entered by the user."
+      },
+      "methods": {
+        "cancel": "A method triggered when the Cancel button is clicked, typically used to navigate away without saving.",
+        "createCity": "A method triggered when the Save button is clicked, typically used to process and save the entered city name."
+      }
+    }
+  },
+  "paginatedList": {
+    "hash": "f0efff05ff8c8c98bcf55cc9919c6db6fade37df6988b04f062bae8ace7d4c2b",
+    "overviewPurpose": {
+      "overview": "This page displays a paginated list of accounts.",
+      "purpose": "Allow users to browse accounts with pagination."
+    },
+    "members": {
+      "properties": {
+        "records": "A list of account records being displayed in the paginated view.",
+        "nextPageToken": "A token that facilitates fetching the next set of records for pagination."
+      },
+      "methods": {
+        "first": "Navigates to the first page of the paginated account list.",
+        "previous": "Navigates to the previous page of the paginated account list.",
+        "next": "Navigates to the next page of the paginated account list.",
+        "last": "Navigates to the last page of the paginated account list."
+      }
+    }
+  },
+  "panelBar": {
+    "hash": "9a8f78baa9195921bd18cee62d26b6e67be3650c4ffe7a2e561302de377ce420",
+    "overviewPurpose": {
+      "overview": "The 'panelBar' component in Visualforce creates a collapsible container that organizes content into expandable panels, each identified by a label.",
+      "purpose": "It is used to enhance user experience by allowing users to view and manage multiple sections of information dynamically, improving content accessibility within a limited space."
+    }
+  },
+  "panelGrid": {
+    "hash": "17f561d64621de655daf3d135a1e9e140f35279ce5b21faa85a5b65a699ae399",
+    "overviewPurpose": {
+      "overview": "The <apex:panelGrid> component arranges its child components in a grid layout, specified by the number of columns. It allows for the organization of UI elements in a structured manner.",
+      "purpose": "The primary purpose of <apex:panelGrid> is to create a responsive table-like layout that can enhance the visual presentation of available data, enabling better user interaction and readability."
+    }
+  },
+  "tabs": {
+    "hash": "aa471aebca8ca501c0b385a621aa25b5f33811f1570104b637f294597fe8b87d",
+    "overviewPurpose": {
+      "overview": "The 'tabs' page utilizes the apex:tabPanel component to organize and display content in a tabbed interface. Each tab represents a specific category, allowing users to navigate between different sets of information efficiently.",
+      "purpose": "The primary purpose of this page is to enhance user experience by enabling easy access to detailed information about various topics, such as irrigation systems, organic crops, and soils, without overwhelming the user with all information displayed at once."
+    }
+  },
+  "toolbar": {
+    "hash": "eefe831f4d58957abb7f934d80ee1ca521e02a26ef3e42fe5ae41b0f4c48b752",
+    "overviewPurpose": {
+      "overview": "The 'toolbar' component in Visualforce provides a structured way to group and display items such as links and forms for user interaction on a page.",
+      "purpose": "Its purpose is to enhance navigation and functionality by allowing users to access external resources and perform actions like searching directly from the toolbar."
+    }
+  },
+  "viewRecord": {
+    "hash": "93d53c1bd9dcb075d223a0c2cc7ac31a18eb48d5e7702d5e243ae0ff91029bbb",
+    "overviewPurpose": {
+      "overview": "The 'viewRecord' Visualforce page is designed to display detailed information about an Account record in Salesforce.",
+      "purpose": "The purpose of this page is to provide users with a clear and structured view of key Account fields, including the Account's name, type, phone number, and number of employees."
+    }
+  },
+  "viewRecordWithParentRecordData": {
+    "hash": "7a55303046ca1f53c564d90f333a5a11beb010971e2f4d104c29049c8b34d977",
+    "overviewPurpose": {
+      "overview": "The 'viewRecordWithParentRecordData' page displays detailed information about an Account record using Salesforce's standard controller functionality.",
+      "purpose": "This page serves to present key fields of an Account, including its Name, Type, Phone, and the associated Owner's Name, helping users to easily view and understand important account data."
+    }
+  },
+  "viewRelatedRecords": {
+    "hash": "688b39f513828f02b4dd12ebe75d3a7c0c5c4ee0878f56b2a522d210c2348408",
+    "overviewPurpose": {
+      "overview": "The 'viewRelatedRecords' page is a Visualforce page designed to display a list of contacts related to a specific Account record.",
+      "purpose": "It serves to retrieve and present related contact information, including their names, titles, phone numbers, and email addresses, enhancing data visibility and accessibility for users."
+    },
+    "members": {
+      "properties": {
+        "contacts": "A list of contact records related to the Account being viewed, which are retrieved for display in the page."
+      },
+      "methods": {
+        "getRelatedContacts": "A method in the ViewRelatedRecordsController that retrieves the related contacts for the current account, to be displayed in the page."
+      }
+    }
+  },
+  "visualforceAction": {
+    "hash": "958b3f5c66d08038672e5fd66aa4eaf35d55ba598957101a2032145b6d1724c8",
+    "overviewPurpose": {
+      "overview": "The visualforceAction page is a Visualforce page that utilizes the standard controller for the Contact object, incorporating Salesforce Lightning Design System (SLDS) for styling.",
+      "purpose": "The purpose of this page is to display a simple message ('This is a Visualforce Page!') centered on the screen, demonstrating the integration of Visualforce with SLDS."
+    }
+  }
+}

@@ -1,14 +1,16 @@
 # Visualforce Page: createMixedRecords
 
+---
+
 <details>
 <summary>Overview</summary>
 
 ## Visualforce Page Overview: createMixedRecords
 
-No overview found.
+The 'createMixedRecords' Visualforce page allows users to input details for creating a new contact and a new opportunity simultaneously.
 
 ### Purpose of the Page
-No purpose found.
+Its purpose is to simplify the data entry process by providing a single form to capture relevant information needed to create both records in Salesforce.
 
 
 
@@ -17,6 +19,8 @@ No purpose found.
 - **Label**: Create Mixed Records
 
 </details>
+
+---
 
 <details>
 <summary>Controllers / Extensions</summary>
@@ -29,51 +33,67 @@ No purpose found.
 
 </details>
 
+---
+
 <details>
 <summary>Properties & Methods</summary>
 
 ## Properties
-No public properties found in associated Apex controllers/extensions.
+| Name | Type | Visibility | Modifiers | Description |
+|------|------|-------------|------------|--------------|
+| `contactFirstName` | `String` | `public` | `None` | The first name of the contact to be created. |
+| `contactLastName` | `String` | `public` | `None` | The last name of the contact to be created. |
+| `opportunityName` | `String` | `public` | `None` | The name of the opportunity to be created. |
+
+---
 
 ## Methods
-| Name | Return Type | Parameters | Visibility | Modifiers | Description |
-| ------ | ------------- | ------------ | ------------ | ----------- | ------------- |
-| `createContactAndOpportunity` | `void` | `()` | `` | `None` |  |
+_No public methods found in associated Apex controllers/extensions._
 
 </details>
+
+---
 
 <details>
 <summary>Page Structure</summary>
 
 ### Forms
-- Contains 1 `apex:form` component(s)
+- Contains **1** `apex:form` component(s)
 
 ### Inputs
-The page utilizes the following input bindings/fields:
+The page utilizes the following input bindings:
 - `{!contactFirstName}`
 - `{!contactLastName}`
 - `{!opportunityName}`
 
 ### Buttons
-The page has buttons/links linked to the following actions:
+The page includes buttons or links linked to:
 - `{!createContactAndOpportunity}`
 
 </details>
 
+---
+
 <details>
 <summary>Page Blocks</summary>
+
 ## Page Blocks on the Page
-No `apex:pageBlock` components detected.
+- **Title**: `Records To Create`
+
 </details>
+
+---
 
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected
+- No `apex:actionSupport` components detected.
 
-- No `apex:outputPanel` components with an ID detected
+- No `apex:outputPanel` components detected.
 
 </details>
+
+---
 
 <details>
 <summary>Dependencies & Scripts</summary>
@@ -88,9 +108,9 @@ No `apex:pageBlock` components detected.
 - `opportunityName`
 
 ### Custom Components
-- No custom components detected
+- No custom components detected.
 
 ### Scripts
-- No script tags detected
+- No script tags detected.
 
 </details>

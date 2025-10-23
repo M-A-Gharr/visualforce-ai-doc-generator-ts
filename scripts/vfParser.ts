@@ -1,278 +1,178 @@
 import { XMLParser } from "fast-xml-parser";
+import path from "path";
 import { parseApexClassFile, ApexClassInfo, ApexProperty, ApexMethod } from "./apexParser";
 import { AiManager } from "./AIProvider/AiManager";
-// import { CopilotProvider } from "./AIProvider/copilotProvider";
-// import { GoogleAiProvider } from "./AIProvider/googleAiProvider";
 import { OpenAiProvider } from "./AIProvider/openAiProvider";
-import path from "path";
+import { VfPageInfo } from "./utils/types";
 
-export interface VfPageInfo {
-    pageMeta: { label: string; apiVersion: string };
-    standardController?: string;
-    customController?: string;
-    extensions?: string[];
-    properties: any[];
-    methods: any[];
-    pageStructure: {
-        forms: number;
-        inputs: string[];
-        buttons: string[];
-    };
-    overview: string;
-    purpose: string;
-    keyFunctions: string[];
-    interactions: string[];
-    actionSupports: any[];
-    outputPanels: any[];
-    pageBlocksAI: any[];
-    dependencies: { objects: string[]; detailedfields: string[]; components: string[] };
-    scripts: any[];
+// export interface VfProperty {
+//   name: string;
+//   type: string;
+//   visibility: string;
+//   description?: string;
+//   descriptionAI?: string;
+// }
+export interface VfProperty extends ApexProperty {
+    descriptionAI?: string;
 }
 
-export const aiManager = new AiManager([
-    new OpenAiProvider(),
-    // new GoogleAiProvider(),
-    // new CopilotProvider(),
-    // Maybe used in future
-]);
+export interface VfMethod extends ApexMethod {
+    descriptionAI?: string;
+}
 
-/**
- * Extract Overview and Purpose from structured comment at top of the page
- */
-function extractOverviewAndPurpose(content: string): { overview: string; purpose: string } {
-    const commentMatch = content.match(/<!--([\s\S]*?)-->/);
-    let overview = "No overview found.";
-    let purpose = "No purpose found.";
+// export interface VfMethod {
+//   name: string;
+//   type: string;
+//   visibility: string;
+//   parameters?: string;
+//   description?: string;
+//   descriptionAI?: string;
+// }
 
-    if (commentMatch) {
-        const comment = commentMatch[1];
-        const overviewMatch = comment.match(/Overview:\s*(.*)/i);
-        const purposeMatch = comment.match(/Purpose:\s*(.*)/i);
+export interface VfPageBlock {
+    title: string;
+    items?: string[];
+}
 
-        if (overviewMatch) overview = overviewMatch[1].trim();
-        if (purposeMatch) purpose = purposeMatch[1].trim();
-    }
+// export interface VfPageInfo {
+//     pageName: string;
+//     pageMeta: { label: string; apiVersion: string };
+//     standardController?: string;
+//     customController?: string;
+//     extensions?: string[];
+//     properties: VfProperty[];
+//     methods: VfMethod[];
+//     overview: string;
+//     purpose: string;
+//     pageStructure: { forms: number; inputs: string[]; buttons: string[] };
+//     dependencies: { objects: string[]; detailedfields: string[]; components: string[] };
+//     keyFunctions: string[];
+//     interactions: string[];
+//     pageBlocks: VfPageBlock[];
+//     actionSupports: Array<{ event: string; reRender?: string; action?: string; status?: string }>;
+//     outputPanels: Array<{ id: string; layout: string; contentPreview: string }>;
+//     scripts: Array<{ type: string; value: string }>;
+// }
 
+const aiManager = new AiManager([new OpenAiProvider()]);
+
+/* --------------------------------------------- */
+/* 🧩 Helper Functions */
+/* --------------------------------------------- */
+
+function extractOverviewAndPurpose(content: string) {
+    const match = content.match(/<!--([\s\S]*?)-->/);
+    if (!match) return { overview: "No overview found.", purpose: "No purpose found." };
+
+    const comment = match[1];
+    const overview = comment.match(/Overview:\s*(.*)/i)?.[1]?.trim() || "No overview found.";
+    const purpose = comment.match(/Purpose:\s*(.*)/i)?.[1]?.trim() || "No purpose found.";
     return { overview, purpose };
 }
 
-/**
- * Parse Visualforce page content and meta, returning a VfPageInfo
- */
-export async function parseVfPage(content: string, metaXml: string, apexDir: string, filePath?: string): Promise<VfPageInfo> {
-    const parser = new XMLParser({ ignoreAttributes: false });
-    let meta: any = {};
-    if (metaXml) {
-        try {
-            meta = parser.parse(metaXml)?.ApexPage ?? {};
-        } catch { }
+function parseControllers(content: string) {
+    const tag = content.match(/<apex:page\s+([^>]+)>/i);
+    if (!tag) return { standardController: "", customController: "", extensions: [] };
+
+    const attrs = tag[1];
+    const standardController = attrs.match(/standardController="([^"]+)"/)?.[1];
+    const customController = attrs.match(/controller="([^"]+)"/)?.[1];
+    const extensions =
+        attrs.match(/extensions="([^"]+)"/)?.[1]?.split(",").map((s) => s.trim()) || [];
+    return { standardController, customController, extensions };
+}
+
+function detectPageStructure(content: string) {
+    const forms = (content.match(/<apex:form\b/gi) || []).length;
+    const inputs = [...content.matchAll(/<apex:(input\w+)[^>]*value="([^"]+)"/gi)].map(
+        (m) => m[2]
+    );
+    const buttons = [...content.matchAll(/<apex:(commandButton|button)[^>]*action="([^"]+)"/gi)].map(
+        (m) => m[2]
+    );
+    return { forms, inputs, buttons };
+}
+
+function detectDependencies(content: string, controllers: string[]) {
+    const objects = new Set<string>();
+    const detailedfields = new Set<string>();
+    const components = new Set<string>();
+
+    controllers.forEach((c) => c && objects.add(c));
+
+    const fieldMatches = content.matchAll(/\{!([A-Za-z0-9_$.]+)\}/g);
+    for (const match of fieldMatches) {
+        const full = match[1];
+        detailedfields.add(full);
+        const root = full.split(".")[0];
+        if (root && !root.startsWith("$")) objects.add(root);
     }
 
-    const pageName = filePath ? path.basename(filePath, ".page") : "Unknown";
-
-    // Parse <apex:page ...> to get controllers
-    const pageTagMatch = content.match(/<apex:page\s+([^>]+)>/i);
-    let standardController, customController, extensions: string[] = [];
-    if (pageTagMatch) {
-        const attrs = pageTagMatch[1];
-        const scMatch = attrs.match(/standardController="([^"]+)"/);
-        const ccMatch = attrs.match(/controller="([^"]+)"/);
-        const exMatch = attrs.match(/extensions="([^"]+)"/);
-        if (scMatch) standardController = scMatch[1];
-        if (ccMatch) customController = ccMatch[1];
-        if (exMatch) extensions = exMatch[1].split(",").map(s => s.trim());
-    }
-
-    // Extract overview & purpose
-    const commentData = extractOverviewAndPurpose(content);
-
-    // Use AI generation
-    let overview = "";
-    let purpose = "";
-    // Try AI first
-    const aiResult = await aiManager.generateOverviewPurpose(pageName, content);
-    overview = aiResult.overview?.trim() || "";
-    purpose = aiResult.purpose?.trim() || "";
-
-
-    // Fallback: if AI failed or returned empty, use .page comments
-    if (!overview) overview = commentData.overview;
-    if (!purpose) purpose = commentData.purpose;
-
-    // Parse Apex classes
-    const allClasses: ApexClassInfo[] = [];
-    if (customController) {
-        const customClass = parseApexClassFile(apexDir, customController);
-        if (customClass) {
-            allClasses.push(customClass);
-            console.log(`Successfully parsed Custom Controller: ${customController}. Properties found: ${customClass.properties.length}, Methods found: ${customClass.methods.length}`);
-        } else {
-            console.warn(`Failed to parse Custom Controller: ${customController}`);
-        }
-    }
-    if (extensions) {
-        extensions.forEach(ext => {
-            const extClass = parseApexClassFile(apexDir, ext);
-            if (extClass) {
-                allClasses.push(extClass);
-                console.log(`Successfully parsed Extension: ${ext}. Properties found: ${extClass.properties.length}, Methods found: ${extClass.methods.length}`);
-            } else {
-                console.warn(`Failed to parse Extension: ${ext}`);
-            }
-        });
-    }
-
-    let allRawProperties: ApexProperty[] = [];
-    let allRawMethods: ApexMethod[] = [];
-
-    allClasses.forEach(cls => {
-        allRawProperties.push(...cls.properties);
-        allRawMethods.push(...cls.methods);
-        cls.innerClasses.forEach(innerCls => {
-            allRawProperties.push(...innerCls.properties);
-            allRawMethods.push(...innerCls.methods);
-        });
-    });
-
-    // Merge properties and methods from all classes
-    const properties = allClasses.flatMap(c => [...c.properties, ...c.innerClasses.flatMap(ic => ic.properties)]);
-    const methods = allRawMethods.filter(m => m.visibility === 'public' || m.visibility === 'global');
-
-    console.log(`Total properties after merging: ${properties.length}`);
-    console.log(`Total methods after filtering: ${methods.length}`);
-
-    // remove duplicates
-    const uniqueProperties = Array.from(new Set(properties.map(p => JSON.stringify(p)))).map(s => JSON.parse(s));
-    const uniqueMethods = Array.from(new Set(methods.map(m => JSON.stringify({ name: m.name, parameters: m.parameters, type: m.type })))).map(s => JSON.parse(s));
-
-    // Detect page structure
-    const formsMatch = content.match(/<apex:form\b/gi) || [];
-    const inputMatches = [...(content.matchAll(/<apex:(inputField|inputText|inputTextarea|selectList|inputCheckbox)[^>]*value="([^"]+)"/gi) || [])];
-    const buttonMatches = [...(content.matchAll(/<apex:(commandButton|commandLink|button)[^>]*action="([^"]+)"/gi) || [])];
-
-    const pageStructure = {
-        forms: formsMatch.length,
-        inputs: inputMatches.map(m => m[2]),
-        buttons: buttonMatches.map(m => m[2]),
-    };
-
-    // AJAX actionSupports
-    const actionSupports = [...(content.matchAll(/<apex:actionSupport\s+([^>]+)>/gi) || [])].map(m => {
-        const attrs = m[1];
-        const reRenderMatch = attrs.match(/reRender="([^"]+)"/);
-        const actionMatch = attrs.match(/action="([^"]+)"/);
-        const eventMatch = attrs.match(/event="([^"]+)"/);
-        const statusMatch = attrs.match(/status="([^"]+)"/);
-        return {
-            event: eventMatch?.[1] ?? "",
-            reRender: reRenderMatch?.[1],
-            action: actionMatch?.[1],
-            status: statusMatch?.[1],
-            parent: "",
-            parentId: "",
-        };
-    });
-
-    // Detect outputPanels
-    const outputPanels = [...(content.matchAll(/<apex:outputPanel\s+id="([^"]+)"([^>]*)>/gi) || [])].map(m => {
-        const id = m[1];
-        const attrs = m[2];
-        const layoutMatch = attrs.match(/layout="([^"]+)"/i);
-        const layout = layoutMatch?.[1] ?? "block (default)";
-
-        const fullOutputPanelMatch = content.match(new RegExp(`<apex:outputPanel\\s+id="${id}"[^>]*>([\\s\\S]*?)<\\/apex:outputPanel>`, 'i'));
-        let innerContent = fullOutputPanelMatch?.[1]?.trim() || '';
-
-        let contentPreview = innerContent.replace(/\s+/g, ' ');
-        contentPreview = contentPreview.replace(/<apex:[^>]+>/g, '').replace(/<\/[^>]+>/g, '').trim(); // Remove VF and HTML tags
-        contentPreview = contentPreview.substring(0, 150) + (contentPreview.length > 150 ? '...' : ''); // Truncate
-        contentPreview = contentPreview || 'No content detected within the panel.';
-
-
-        return {
-            id: id,
-            layout: layout,
-            contentPreview: contentPreview,
-        };
-    });
-
-    // Scripts
-    const scripts = [...(content.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi) || [])].map(m => ({
-        type: "inline",
-        value: m[1],
-    }));
-
-    // Dependencies
-    const detectedObjects: Set<string> = new Set();
-    const detectedDetailedFields: Set<string> = new Set();
-    const customComponentMatches: Set<string> = new Set();
-
-    if (standardController) {
-        detectedObjects.add(standardController);
-    }
-
-    if (customController) {
-        detectedObjects.add(customController);
-    }
-    if (extensions) {
-        extensions.forEach(ext => detectedObjects.add(ext));
-    }
-
-    const fullBindingPathRegex = /\{!([a-zA-Z0-9_$][a-zA-Z0-9_.]*)\}/g;
-    let fullPathMatch;
-    while ((fullPathMatch = fullBindingPathRegex.exec(content)) !== null) {
-        const fullBinding = fullPathMatch[1];
-        detectedDetailedFields.add(fullBinding);
-        const parts = fullBinding.split('.');
-        const rootIdentifier = parts[0];
-
-        if (rootIdentifier) {
-            if (rootIdentifier.startsWith('$')) {
-                // Handle global variables as special objects or categories
-                if (rootIdentifier === '$User') detectedObjects.add('User');
-                else if (rootIdentifier === '$CurrentPage') detectedObjects.add('CurrentPage');
-                else if (rootIdentifier === '$Organization') detectedObjects.add('Organization');
-            } else {
-                if (rootIdentifier[0] && rootIdentifier[0].toUpperCase() === rootIdentifier[0] &&
-                    rootIdentifier !== customController && !extensions.includes(rootIdentifier)) {
-                    detectedObjects.add(rootIdentifier);
-                }
-            }
-        }
-    }
-
-    const dataTableVarRegex = /<apex:dataTable[^>]*value="{!([^.]+)\.([^"]+)}"[^>]*var="([^"]+)"/gi;
-    let dataTableMatch;
-    while ((dataTableMatch = dataTableVarRegex.exec(content)) !== null) {
-        const parentObjectVar = dataTableMatch[1];
-        const relatedList = dataTableMatch[2];
-        // childObjectVar is dataTableMatch[3] but not directly used for SObject type here
-
-        if (standardController && parentObjectVar.toLowerCase() === standardController.toLowerCase()) {
-            if (relatedList.endsWith('s')) {
-                const inferredSObject = relatedList.substring(0, relatedList.length - 1);
-                detectedObjects.add(inferredSObject);
-            }
-        }
-    }
-
-    const customComponentTagRegex = /<c:([A-Za-z0-9_]+)/g;
-    let componentMatch;
-    while ((componentMatch = customComponentTagRegex.exec(content)) !== null) {
-        customComponentMatches.add(componentMatch[1]);
-    }
-
-    // PageBlocks for output
-    const pageBlocks = [...(content.matchAll(/<apex:pageBlock\s+([^>]+)>/gi) || [])].map(m => {
-        const attrs = m[1];
-        const titleMatch = attrs.match(/title="([^"]+)"/i);
-        return {
-            title: titleMatch?.[1] ?? "N/A",
-            // Add other relevant attributes like `id`, `mode`, etc.
-        };
-    });
+    const customComponentMatches = content.matchAll(/<c:([A-Za-z0-9_]+)/g);
+    for (const match of customComponentMatches) components.add(match[1]);
 
     return {
+        objects: Array.from(objects),
+        detailedfields: Array.from(detailedfields),
+        components: Array.from(components),
+    };
+}
+
+/* --------------------------------------------- */
+/* 🧠 Main Parser */
+/* --------------------------------------------- */
+
+export async function parseVfPage(
+    content: string,
+    metaXml: string,
+    apexDir: string,
+    filePath?: string
+): Promise<VfPageInfo> {
+    const parser = new XMLParser({ ignoreAttributes: false });
+    const meta = metaXml ? parser.parse(metaXml)?.ApexPage ?? {} : {};
+
+    const { standardController, customController, extensions } = parseControllers(content);
+    const commentData = extractOverviewAndPurpose(content);
+    const pageName = filePath ? path.basename(filePath, ".page") : "Unknown";
+
+    // AI-generated overview and purpose
+    const aiOverview = await aiManager.generateOverviewPurpose(pageName, content);
+    const overview = aiOverview.overview || commentData.overview;
+    const purpose = aiOverview.purpose || commentData.purpose;
+
+    // --- Parse Apex Controllers ---
+    const controllers: ApexClassInfo[] = [];
+    if (customController) {
+        const parsed = parseApexClassFile(apexDir, customController);
+        if (parsed) controllers.push(parsed);
+    }
+    extensions.forEach((ext) => {
+        const parsed = parseApexClassFile(apexDir, ext);
+        if (parsed) controllers.push(parsed);
+    });
+
+    // Merge all properties/methods
+    const properties = controllers.flatMap((c) => [
+        ...c.properties,
+        ...c.innerClasses.flatMap((ic) => ic.properties),
+    ]);
+    const methods = controllers.flatMap((c) => [
+        ...c.methods,
+        ...c.innerClasses.flatMap((ic) => ic.methods),
+    ]);
+
+    // AI enrich member descriptions
+    await aiManager.enrichMembersWithDescriptions(pageName, properties, methods);
+
+    const pageStructure = detectPageStructure(content);
+    const dependencies = detectDependencies(content, [
+        standardController,
+        customController,
+        ...extensions,
+    ]);
+
+    const pageInfo: VfPageInfo = {
+        pageName,
         pageMeta: {
             label: meta.label ?? "N/A",
             apiVersion: meta.apiVersion ?? "N/A",
@@ -280,21 +180,23 @@ export async function parseVfPage(content: string, metaXml: string, apexDir: str
         standardController,
         customController,
         extensions,
-        properties: uniqueProperties,
-        methods: uniqueMethods,
-        pageStructure,
+        properties,
+        methods,
         overview,
         purpose,
+        pageStructure: detectPageStructure(content),
+        dependencies: detectDependencies(content, [
+            standardController,
+            customController,
+            ...extensions,
+        ]),
         keyFunctions: [],
         interactions: [],
-        actionSupports,
-        outputPanels,
-        pageBlocksAI: pageBlocks,
-        dependencies: {
-            objects: Array.from(detectedObjects),
-            detailedfields: Array.from(detectedDetailedFields),
-            components: Array.from(new Set(customComponentMatches)),
-        },
-        scripts,
+        pageBlocks: [],
+        actionSupports: [],
+        outputPanels: [],
+        scripts: [],
     };
+
+    return pageInfo;
 }
