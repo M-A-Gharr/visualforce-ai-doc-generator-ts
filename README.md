@@ -31,8 +31,8 @@ If you’re a Salesforce developer or consultant, this tool helps you:
 ## 🛠️ Installation
 
 ```bash
-git clone https://github.com/M-A-Gharr/visualforce-ai-doc-generator.git
-cd visualforce-ai-doc-generator
+git clone https://github.com/M-A-Gharr/visualforce-ai-doc-generator-ts.git
+cd visualforce-ai-doc-generator-ts
 npm install
 ```
 
@@ -54,8 +54,20 @@ my-salesforce-project/
 │   │   │   │   └── MyPage.page
 │   │   │   └── classes/
 │   │   │       └── MyController.cls
-├── visualforce-ai-doc-generator/
-│   ├── generateVfDocs.ts
+├── visualforce-ai-doc-generator-ts/
+│   │   ├── cache/
+│   │   │   ├── ai_cache.json
+│   ├── scripts/
+│   │   ├── AIProvider/
+│   │   │   ├── AiManager.ts
+│   │   │   ├── AiProvider.ts
+│   │   │   ├── openAiProvider.ts
+│   │   ├── utils/
+│   │   │   ├── cacheManager.ts
+│   │   │   ├── types.ts
+│   │   ├── vfParser.ts
+│   │   ├── generateVfSocs.ts
+│   │   ├── apexParser.ts
 │   └── ...
 └── package.json
 
