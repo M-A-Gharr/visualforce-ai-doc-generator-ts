@@ -63,32 +63,33 @@ export function parseApexClassContent(content: string, className: string): ApexC
     };
 
     // --- Extract Javadoc-style properties ---
-    const propRegex =
-        /\/\*\*([\s\S]*?)\*\/\s*(public|global|private|protected)\s+([\w<>\[\]]+)\s+([\w_]+)\s*;/g;
+    const propertyRegex =
+        /\b(public|private|protected|global)\s+([\w<>]+)\s+(\w+)\s*\{\s*get;\s*set;\s*\}/g;
     let propMatch;
-    while ((propMatch = propRegex.exec(content)) !== null) {
-        const [, comment, visibility, type, name] = propMatch;
+    while ((propMatch = propertyRegex.exec(content)) !== null) {
         info.properties.push({
-            name,
-            type,
-            visibility,
-            description: comment?.replace(/\*/g, "").trim() || "",
+            visibility: propMatch[1],
+            type: propMatch[2],
+            name: propMatch[3],
+            modifiers: [],
         });
     }
 
     // --- Extract Javadoc-style methods ---
     const methodRegex =
-        /\/\*\*([\s\S]*?)\*\/\s*(public|global|private|protected)\s+([\w<>\[\]]+)\s+([\w_]+)\s*\(([^)]*)\)\s*\{/g;
+        /\b(public|private|protected|global)\s+([\w<>]+)\s+(\w+)\s*\(([^)]*)\)\s*\{/g;
     let methodMatch;
     while ((methodMatch = methodRegex.exec(content)) !== null) {
-        const [, comment, visibility, type, name, params] = methodMatch;
+        const modifiers: string[] = [];
+        if (content.slice(0, methodMatch.index).match(/\bstatic\b/g)) {
+            modifiers.push("static");
+        }
         info.methods.push({
-            name,
-            type,
-            visibility,
-            parameters: params.trim(),
-            signature: `${name}(${params})`,
-            description: comment?.replace(/\*/g, "").trim() || "",
+            visibility: methodMatch[1],
+            type: methodMatch[2],
+            name: methodMatch[3],
+            parameters: methodMatch[4]?.trim() || "",
+            modifiers,
         });
     }
 

@@ -40,77 +40,27 @@ To serve as a comprehensive test case for a Visualforce documentation parser.
 <summary>Properties & Methods</summary>
 
 ## Properties
-_No public properties found in associated Apex controllers/extensions._
+| Name | Type | Visibility | Modifiers | Description |
+|------|------|-------------|------------|--------------|
+| `myStringProperty` | `String` | `public` | `None` | A string property used to hold dynamic text values. |
+| `selectedOption` | `String` | `public` | `None` | Represents the currently selected option from a list. |
+| `helperProperty` | `String` | `public` | `None` | A property that aids in performing various internal operations. |
+| `myBooleanProperty` | `Boolean` | `public` | `None` | A boolean property indicating a true/false condition. |
+| `selectedContactId` | `Id` | `public` | `None` | Stores the ID of the currently selected contact. |
+| `anotherExtensionProperty` | `String` | `public` | `None` | An additional property for extending functionality or storing extra data. |
 
 ---
 
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 |------|--------------|-------------|-------------|------------|--------------|
-| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` | @description This is the custom controller for TestPage.
-  It handles logic related to account data.
- /
-public with sharing class MyCustomController {
-
-    // Properties
-    public String myStringProperty { get; set; }
-    public String selectedOption { get; set; }
-    public Integer myIntegerProperty { get; private set; }
-    private String privateProperty = 'secret'; // Should not be documented
-
-    // Constructor
-    public MyCustomController() {
-        this.myStringProperty = 'Default Value';
-        this.selectedOption = 'Option1';
-        this.myIntegerProperty = 100;
-        System.debug('MyCustomController initialized.');
-    }
-
-    /
-      @description Saves the current Account record.
-      @param accountId The ID of the account to save. (This is just an example, usually passed implicitly)
-      @return PageReference null to stay on the same page. |
-| `fetchContactDetails` | `void` | `()` | `public` | `None` | @description Extension controller for additional functionalities.
-  @summary Handles contact details and boolean property.
- /
-public with sharing class MyExtensionController {
-
-    private final ApexPages.StandardController stdController;
-
-    // Properties
-    public Boolean myBooleanProperty { get; set; }
-    public Id selectedContactId { get; set; }
-    public Contact currentContact { get; private set; }
-
-    // Constructor
-    public MyExtensionController(ApexPages.StandardController controller) {
-        this.stdController = controller;
-        this.myBooleanProperty = true;
-        this.selectedContactId = null;
-        System.debug('MyExtensionController initialized for ' + controller.getId());
-    }
-
-    /
-      @description Fetches details for the selected contact ID.
-      This method is called via actionSupport.
-      @return void |
-| `doSomethingElse` | `PageReference` | `()` | `public` | `None` | @description A second extension for TestPage.
- /
-public with sharing class AnotherExtension {
-
-    private final ApexPages.StandardController stdController;
-
-    public String anotherExtensionProperty { get; set; }
-
-    public AnotherExtension(ApexPages.StandardController controller) {
-        this.stdController = controller;
-        this.anotherExtensionProperty = 'Hello from another extension!';
-        System.debug('AnotherExtension initialized.');
-    }
-
-    /
-      @description A simple action method from the second extension.
-      @return null |
+| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` | Saves the account information to the database. |
+| `isValid` | `Boolean` | `()` | `public` | `None` | Checks whether the current state is valid based on predefined criteria. |
+| `doSomethingInner` | `void` | `()` | `public` | `None` | Performs an inner operation specific to the current context. |
+| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `public` | `None` | Processes the input data as required by the application flow. |
+| `fetchContactDetails` | `void` | `()` | `public` | `None` | Retrieves details of the contact based on the selectedContactId. |
+| `internalMethod` | `void` | `()` | `private` | `None` | An internal utility method used to assist other methods. |
+| `doSomethingElse` | `PageReference` | `()` | `public` | `None` | Executes an alternative operation based on certain conditions. |
 
 </details>
 

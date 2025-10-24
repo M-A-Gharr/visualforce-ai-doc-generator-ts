@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: aaa
 
-This Visualforce page displays contacts associated with a specific Salesforce Account, personalized with a greeting for the logged-in user.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to allow users to view and interact with contact details by hovering over their names, thereby providing a quick way to retrieve information about each contact.
+_No purpose available._
 
 
 
