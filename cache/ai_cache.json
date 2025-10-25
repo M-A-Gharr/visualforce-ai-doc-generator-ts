@@ -259,5 +259,251 @@
       "overview": "The visualforceAction page is a Visualforce page that utilizes the standard controller for the Contact object, incorporating Salesforce Lightning Design System (SLDS) for styling.",
       "purpose": "The purpose of this page is to display a simple message ('This is a Visualforce Page!') centered on the screen, demonstrating the integration of Visualforce with SLDS."
     }
+  },
+  "overview_aa1": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_aa1": {
+    "properties": {
+      "myStringProperty": "Property myStringProperty of type String.",
+      "selectedOption": "Property selectedOption of type String.",
+      "helperProperty": "Property helperProperty of type String.",
+      "myBooleanProperty": "Property myBooleanProperty of type Boolean.",
+      "selectedContactId": "Property selectedContactId of type Id.",
+      "anotherExtensionProperty": "Property anotherExtensionProperty of type String."
+    },
+    "methods": {
+      "saveAccount": "Method saveAccount returns PageReference and takes (String accountId).",
+      "isValid": "Method isValid returns Boolean and takes ().",
+      "doSomethingInner": "Method doSomethingInner returns void and takes ().",
+      "processData": "Method processData returns void and takes (List<String> dataList, Integer quantity).",
+      "fetchContactDetails": "Method fetchContactDetails returns void and takes ().",
+      "internalMethod": "Method internalMethod returns void and takes ().",
+      "doSomethingElse": "Method doSomethingElse returns PageReference and takes ()."
+    }
+  },
+  "overview_aaa": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_aaa": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_afterRenderHook": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_afterRenderHook": {
+    "properties": {},
+    "methods": {
+      "populateCourses": "Method populateCourses returns void and takes ()."
+    }
+  },
+  "overview_basicListGetListUi": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_basicListGetListUi": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_beforeRenderHook": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_beforeRenderHook": {
+    "properties": {},
+    "methods": {
+      "populateCourses": "Method populateCourses returns void and takes ()."
+    }
+  },
+  "overview_binding": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_binding": {
+    "properties": {
+      "courseName": "Property courseName of type String."
+    },
+    "methods": {}
+  },
+  "overview_createMixedRecords": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_createMixedRecords": {
+    "properties": {
+      "contactFirstName": "Property contactFirstName of type String.",
+      "contactLastName": "Property contactLastName of type String.",
+      "opportunityName": "Property opportunityName of type String."
+    },
+    "methods": {
+      "createContactAndOpportunity": "Method createContactAndOpportunity returns void and takes ()."
+    }
+  },
+  "overview_createRecordWithPrepopulatedValues": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_createRecordWithPrepopulatedValues": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_editRecord": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_editRecord": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_editableList": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_editableList": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_interoperability": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_interoperability": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_listRecordLinks": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_listRecordLinks": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_listWithParentRecordData": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_listWithParentRecordData": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_pageBlocks": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_pageBlocks": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_pageMessages": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_pageMessages": {
+    "properties": {},
+    "methods": {
+      "callApex": "Method callApex returns void and takes ()."
+    }
+  },
+  "overview_pageMessagesDataRetrieval": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_pageMessagesDataRetrieval": {
+    "properties": {},
+    "methods": {
+      "getAccounts": "Method getAccounts returns void and takes ()."
+    }
+  },
+  "overview_pageMessagesForm": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_pageMessagesForm": {
+    "properties": {
+      "cityName": "Property cityName of type String."
+    },
+    "methods": {
+      "createCity": "Method createCity returns void and takes ().",
+      "cancel": "Method cancel returns PageReference and takes ()."
+    }
+  },
+  "overview_paginatedList": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_paginatedList": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_panelBar": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_panelBar": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_panelGrid": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_panelGrid": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_tabs": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_tabs": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_toolbar": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_toolbar": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_viewRecord": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_viewRecord": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_viewRecordWithParentRecordData": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_viewRecordWithParentRecordData": {
+    "properties": {},
+    "methods": {}
+  },
+  "overview_viewRelatedRecords": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_viewRelatedRecords": {
+    "properties": {},
+    "methods": {
+      "getRelatedContacts": "Method getRelatedContacts returns void and takes ()."
+    }
+  },
+  "overview_visualforceAction": {
+    "overview": "",
+    "purpose": ""
+  },
+  "members_visualforceAction": {
+    "properties": {},
+    "methods": {}
   }
 }

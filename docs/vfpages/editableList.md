@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: editableList
 
-The 'editableList' page is a Visualforce page designed to display and manage a list of Account records in a tabular format with editable fields.
+_No overview available._
 
 ### Purpose of the Page
-Its purpose is to allow users to view, edit, and save multiple Account records simultaneously, enhancing productivity by enabling batch updates.
+_No purpose available._
 
 
 
@@ -98,6 +98,10 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `Account`
+- `save`
+- `cancel`
+- `accounts`
+- `account`
 
 ### Fields
 - `save`

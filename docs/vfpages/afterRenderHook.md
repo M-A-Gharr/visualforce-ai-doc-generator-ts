@@ -44,7 +44,9 @@ _No public properties found in associated Apex controllers/extensions._
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `populateCourses` | `void` | `()` | `public` | `None` | Method populateCourses returns void and takes (). |
 
 </details>
 
@@ -71,7 +73,6 @@ _No public methods found in associated Apex controllers/extensions._
 
 ## Page Blocks on the Page
 _No `apex:pageBlock` components detected._
-
 </details>
 
 ---

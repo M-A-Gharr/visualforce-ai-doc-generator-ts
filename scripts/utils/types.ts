@@ -49,7 +49,7 @@ export interface VfPageInfo {
   }>;
   outputPanels: Array<{
     id: string;
-    layout: string;
+    layout?: string;
     contentPreview: string;
   }>;
   dependencies: {

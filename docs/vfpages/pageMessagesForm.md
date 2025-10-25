@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: pageMessagesForm
 
-The 'pageMessagesForm' is a Visualforce page that incorporates user input and displays messages based on the processing results.
+_No overview available._
 
 ### Purpose of the Page
-Its purpose is to allow users to input a city name, provide feedback through page messages, and manage their actions with 'Save' and 'Cancel' buttons.
+_No purpose available._
 
 
 
@@ -41,12 +41,15 @@ Its purpose is to allow users to input a city name, provide feedback through pag
 ## Properties
 | Name | Type | Visibility | Modifiers | Description |
 |------|------|-------------|------------|--------------|
-| `cityName` | `String` | `public` | `None` | A string that represents the name of the city entered by the user. |
+| `cityName` | `String` | `public` | `None` | Property cityName of type String. |
 
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `createCity` | `void` | `()` | `public` | `None` | Method createCity returns void and takes (). |
+| `cancel` | `PageReference` | `()` | `public` | `None` | Method cancel returns PageReference and takes (). |
 
 </details>
 
@@ -75,7 +78,7 @@ The page includes buttons or links linked to:
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Error Handling`
+_No `apex:pageBlock` components detected._
 
 </details>
 
@@ -97,6 +100,9 @@ The page includes buttons or links linked to:
 
 ### Objects
 - `PageMessagesFormController`
+- `cityName`
+- `cancel`
+- `createCity`
 
 ### Fields
 - `cityName`

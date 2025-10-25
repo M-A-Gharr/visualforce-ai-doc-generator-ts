@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: pageMessagesDataRetrieval
 
-The 'pageMessagesDataRetrieval' Visualforce page displays messages and data related to account retrieval using the specified controller.
+_No overview available._
 
 ### Purpose of the Page
-Its primary purpose is to facilitate user interaction by showing messages generated during the retrieval process of account data.
+_No purpose available._
 
 
 
@@ -44,7 +44,9 @@ _No public properties found in associated Apex controllers/extensions._
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `getAccounts` | `void` | `()` | `public` | `None` | Method getAccounts returns void and takes (). |
 
 </details>
 
@@ -92,6 +94,8 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `PageMessagesDataRetrievalController`
+- `getAccounts`
+- `accounts`
 
 ### Fields
 - `getAccounts`

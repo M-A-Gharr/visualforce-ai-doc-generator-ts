@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: beforeRenderHook
 
-The 'beforeRenderHook' Visualforce page utilizes the BeforeRenderHookController to manage the rendering of course data dynamically, ensuring that relevant information is populated prior to display.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to retrieve and present a list of courses to the user, leveraging the action method to populate data before the page is rendered.
+_No purpose available._
 
 
 
@@ -39,14 +39,14 @@ The purpose of this page is to retrieve and present a list of courses to the use
 <summary>Properties & Methods</summary>
 
 ## Properties
-| Name | Type | Visibility | Modifiers | Description |
-|------|------|-------------|------------|--------------|
-| `courses` | `List<String>` | `public` | `None` | A list of course names or objects that can be rendered on the Visualforce page. |
+_No public properties found in associated Apex controllers/extensions._
 
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `populateCourses` | `void` | `()` | `public` | `None` | Method populateCourses returns void and takes (). |
 
 </details>
 
@@ -73,7 +73,6 @@ _No public methods found in associated Apex controllers/extensions._
 
 ## Page Blocks on the Page
 _No `apex:pageBlock` components detected._
-
 </details>
 
 ---
@@ -94,6 +93,9 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `BeforeRenderHookController`
+- `populateCourses`
+- `courses`
+- `course`
 
 ### Fields
 - `populateCourses`

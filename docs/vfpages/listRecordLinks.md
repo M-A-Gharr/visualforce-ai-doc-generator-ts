@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: listRecordLinks
 
-The 'listRecordLinks' page displays a list of Account records with clickable names, along with additional details such as Type, Phone, and Number of Employees.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to provide users with an easy-to-navigate table of Account records, allowing them to quickly access the details of each account by clicking on the account name.
+_No purpose available._
 
 
 
@@ -92,6 +92,8 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `Account`
+- `accounts`
+- `account`
 
 ### Fields
 - `accounts`

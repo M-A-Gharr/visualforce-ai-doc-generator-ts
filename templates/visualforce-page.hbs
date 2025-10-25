@@ -130,14 +130,21 @@ The page includes buttons or links linked to:
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-{{#if pageBlocksAI.length}}
-{{#each pageBlocksAI}}
-- **Title**: `{{this.title}}`
+{{#if pageBlocks.length}}
+{{#each pageBlocks}}
+- **Block Title**: `{{this.title}}`
+  {{#if this.items.length}}
+  **Contains Components**:
+  {{#each this.items}}
+    - `{{this}}`
+  {{/each}}
+  {{else}}
+  _No specific components detected within this block._
+  {{/if}}
 {{/each}}
 {{else}}
 _No `apex:pageBlock` components detected._
 {{/if}}
-
 </details>
 
 ---
@@ -161,14 +168,12 @@ The page includes `apex:actionSupport` components:
 ### Output Panels
 {{#each outputPanels}}
 - **ID**: `{{this.id}}`
-  - **Layout**: `{{this.layout}}`
+  {{#if this.layout}}- **Layout**: `{{this.layout}}`{{/if}} {{!-- Adjusted for optional layout --}}
   - **Content Preview**: "{{this.contentPreview}}"
 {{/each}}
 {{else}}
 - No `apex:outputPanel` components detected.
 {{/if}}
-
-</details>
 
 ---
 
@@ -204,6 +209,7 @@ The page includes `apex:actionSupport` components:
 
 ### Scripts
 {{#if scripts.length}}
+The page includes the following script resources or inline blocks:
 {{#each scripts}}
 - **{{this.type}}**: `{{this.value}}`
 {{/each}}

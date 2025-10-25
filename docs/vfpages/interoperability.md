@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: interoperability
 
-The Interoperability Visualforce page demonstrates how to integrate Lightning web components within Visualforce pages using Lightning Out.
+_No overview available._
 
 ### Purpose of the Page
-Its purpose is to guide developers through the steps to include Lightning components, create event listeners, and interact with these components from Visualforce.
+_No purpose available._
 
 
 
@@ -100,37 +100,6 @@ _No `apex:pageBlock` components detected._
 - No custom components detected.
 
 ### Scripts
-- **inline**: `
-        var timesListened = 1;
-
-        $Lightning.use('c:LWCContainerApp', function () {
-            $Lightning.createComponent(
-                'c:interoperability',
-                { label: 'Initial label value' },
-                'lwc-container',
-                function (cmp) {
-                    console.log('LWC added to Visualforce page:' + cmp);
-                    var lwc = document.querySelector('c-interoperability');
-                    lwc.addEventListener('buttonclicked', handleLWCEvent);
-                }
-            );
-        });
-
-        function handleLWCEvent() {
-            document.querySelector('p.messages').textContent =
-                timesListened + ' messages listened from LWC';
-            timesListened++;
-        }
-
-        function callLWCMethod(event) {
-            var lwc = document.querySelector('c-interoperability');
-            lwc.doWhatever();
-        }
-
-        function setLWCProperty(event) {
-            var lwc = document.querySelector('c-interoperability');
-            lwc.label = 'The label property was updated from Visualforce';
-        }
-    `
+- No script tags detected.
 
 </details>

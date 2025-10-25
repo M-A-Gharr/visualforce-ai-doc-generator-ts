@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: toolbar
 
-The 'toolbar' component in Visualforce provides a structured way to group and display items such as links and forms for user interaction on a page.
+_No overview available._
 
 ### Purpose of the Page
-Its purpose is to enhance navigation and functionality by allowing users to access external resources and perform actions like searching directly from the toolbar.
+_No purpose available._
 
 
 

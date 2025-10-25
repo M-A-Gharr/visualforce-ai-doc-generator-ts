@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: viewRecord
 
-The 'viewRecord' Visualforce page is designed to display detailed information about an Account record in Salesforce.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to provide users with a clear and structured view of key Account fields, including the Account's name, type, phone number, and number of employees.
+_No purpose available._
 
 
 
@@ -70,7 +70,7 @@ _No public methods found in associated Apex controllers/extensions._
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Account Details`
+_No `apex:pageBlock` components detected._
 
 </details>
 

@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: viewRecordWithParentRecordData
 
-The 'viewRecordWithParentRecordData' page displays detailed information about an Account record using Salesforce's standard controller functionality.
+_No overview available._
 
 ### Purpose of the Page
-This page serves to present key fields of an Account, including its Name, Type, Phone, and the associated Owner's Name, helping users to easily view and understand important account data.
+_No purpose available._
 
 
 
@@ -70,7 +70,7 @@ _No public methods found in associated Apex controllers/extensions._
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Account Details`
+_No `apex:pageBlock` components detected._
 
 </details>
 

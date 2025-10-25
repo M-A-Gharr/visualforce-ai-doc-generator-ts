@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: listWithParentRecordData
 
-The 'listWithParentRecordData' Visualforce page displays a table of Account records using a standard controller to access multiple account records efficiently.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to provide users with a quick and organized view of key details of Accounts, including their Name, Type, Phone, and Owner information.
+_No purpose available._
 
 
 
@@ -92,6 +92,8 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `Account`
+- `accounts`
+- `account`
 
 ### Fields
 - `accounts`

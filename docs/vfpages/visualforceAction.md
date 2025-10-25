@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: visualforceAction
 
-The visualforceAction page is a Visualforce page that utilizes the standard controller for the Contact object, incorporating Salesforce Lightning Design System (SLDS) for styling.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to display a simple message ('This is a Visualforce Page!') centered on the screen, demonstrating the integration of Visualforce with SLDS.
+_No purpose available._
 
 
 

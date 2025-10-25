@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: createMixedRecords
 
-The 'createMixedRecords' Visualforce page allows users to input details for creating a new contact and a new opportunity simultaneously.
+_No overview available._
 
 ### Purpose of the Page
-Its purpose is to simplify the data entry process by providing a single form to capture relevant information needed to create both records in Salesforce.
+_No purpose available._
 
 
 
@@ -41,14 +41,16 @@ Its purpose is to simplify the data entry process by providing a single form to 
 ## Properties
 | Name | Type | Visibility | Modifiers | Description |
 |------|------|-------------|------------|--------------|
-| `contactFirstName` | `String` | `public` | `None` | The first name of the contact to be created. |
-| `contactLastName` | `String` | `public` | `None` | The last name of the contact to be created. |
-| `opportunityName` | `String` | `public` | `None` | The name of the opportunity to be created. |
+| `contactFirstName` | `String` | `public` | `None` | Property contactFirstName of type String. |
+| `contactLastName` | `String` | `public` | `None` | Property contactLastName of type String. |
+| `opportunityName` | `String` | `public` | `None` | Property opportunityName of type String. |
 
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `createContactAndOpportunity` | `void` | `()` | `public` | `None` | Method createContactAndOpportunity returns void and takes (). |
 
 </details>
 
@@ -78,8 +80,12 @@ The page includes buttons or links linked to:
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Records To Create`
-
+- **Block Title**: `Records To Create`
+  **Contains Components**:
+    - `apex:pageBlockButtons`
+    - `apex:commandButton`
+    - `apex:pageBlockSection`
+    - `apex:inputText`
 </details>
 
 ---
@@ -100,6 +106,10 @@ The page includes buttons or links linked to:
 
 ### Objects
 - `CreateMixedRecordsApexController`
+- `createContactAndOpportunity`
+- `contactFirstName`
+- `contactLastName`
+- `opportunityName`
 
 ### Fields
 - `createContactAndOpportunity`

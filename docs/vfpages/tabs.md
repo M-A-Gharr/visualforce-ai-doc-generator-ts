@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: tabs
 
-The 'tabs' page utilizes the apex:tabPanel component to organize and display content in a tabbed interface. Each tab represents a specific category, allowing users to navigate between different sets of information efficiently.
+_No overview available._
 
 ### Purpose of the Page
-The primary purpose of this page is to enhance user experience by enabling easy access to detailed information about various topics, such as irrigation systems, organic crops, and soils, without overwhelming the user with all information displayed at once.
+_No purpose available._
 
 
 

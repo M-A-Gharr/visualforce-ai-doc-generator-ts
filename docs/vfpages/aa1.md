@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: aa1
 
-This page demonstrates various Visualforce components, controllers, extensions, and data bindings to test a documentation generator.
+_No overview available._
 
 ### Purpose of the Page
-To serve as a comprehensive test case for a Visualforce documentation parser.
+_No purpose available._
 
 
 
@@ -42,25 +42,25 @@ To serve as a comprehensive test case for a Visualforce documentation parser.
 ## Properties
 | Name | Type | Visibility | Modifiers | Description |
 |------|------|-------------|------------|--------------|
-| `myStringProperty` | `String` | `public` | `None` | A string property used to hold dynamic text values. |
-| `selectedOption` | `String` | `public` | `None` | Represents the currently selected option from a list. |
-| `helperProperty` | `String` | `public` | `None` | A property that aids in performing various internal operations. |
-| `myBooleanProperty` | `Boolean` | `public` | `None` | A boolean property indicating a true/false condition. |
-| `selectedContactId` | `Id` | `public` | `None` | Stores the ID of the currently selected contact. |
-| `anotherExtensionProperty` | `String` | `public` | `None` | An additional property for extending functionality or storing extra data. |
+| `myStringProperty` | `String` | `public` | `None` | Property myStringProperty of type String. |
+| `selectedOption` | `String` | `public` | `None` | Property selectedOption of type String. |
+| `helperProperty` | `String` | `public` | `None` | Property helperProperty of type String. |
+| `myBooleanProperty` | `Boolean` | `public` | `None` | Property myBooleanProperty of type Boolean. |
+| `selectedContactId` | `Id` | `public` | `None` | Property selectedContactId of type Id. |
+| `anotherExtensionProperty` | `String` | `public` | `None` | Property anotherExtensionProperty of type String. |
 
 ---
 
 ## Methods
 | Name | Return Type | Parameters | Visibility | Modifiers | Description |
 |------|--------------|-------------|-------------|------------|--------------|
-| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` | Saves the account information to the database. |
-| `isValid` | `Boolean` | `()` | `public` | `None` | Checks whether the current state is valid based on predefined criteria. |
-| `doSomethingInner` | `void` | `()` | `public` | `None` | Performs an inner operation specific to the current context. |
-| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `public` | `None` | Processes the input data as required by the application flow. |
-| `fetchContactDetails` | `void` | `()` | `public` | `None` | Retrieves details of the contact based on the selectedContactId. |
-| `internalMethod` | `void` | `()` | `private` | `None` | An internal utility method used to assist other methods. |
-| `doSomethingElse` | `PageReference` | `()` | `public` | `None` | Executes an alternative operation based on certain conditions. |
+| `saveAccount` | `PageReference` | `(String accountId)` | `public` | `None` | Method saveAccount returns PageReference and takes (String accountId). |
+| `isValid` | `Boolean` | `()` | `public` | `None` | Method isValid returns Boolean and takes (). |
+| `doSomethingInner` | `void` | `()` | `public` | `None` | Method doSomethingInner returns void and takes (). |
+| `processData` | `void` | `(List<String> dataList, Integer quantity)` | `public` | `None` | Method processData returns void and takes (List<String> dataList, Integer quantity). |
+| `fetchContactDetails` | `void` | `()` | `public` | `None` | Method fetchContactDetails returns void and takes (). |
+| `internalMethod` | `void` | `()` | `private` | `None` | Method internalMethod returns void and takes (). |
+| `doSomethingElse` | `PageReference` | `()` | `public` | `None` | Method doSomethingElse returns PageReference and takes (). |
 
 </details>
 
@@ -90,8 +90,28 @@ The page includes buttons or links linked to:
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-_No `apex:pageBlock` components detected._
-
+- **Block Title**: `Page Information for {!$User.FirstName}`
+  **Contains Components**:
+    - `No specific items detected`
+- **Block Title**: `Account Details`
+  **Contains Components**:
+    - `apex:pageBlockSection`
+    - `apex:inputField`
+    - `apex:inputText`
+    - `apex:inputCheckbox`
+    - `apex:selectList`
+    - `apex:selectOption`
+    - `apex:pageBlockButtons`
+    - `apex:commandButton`
+    - `apex:button`
+    - `apex:commandLink`
+- **Block Title**: `Associated Contacts`
+  **Contains Components**:
+    - `apex:dataTable`
+    - `apex:column`
+    - `apex:outputPanel`
+    - `apex:actionSupport`
+    - `apex:param`
 </details>
 
 ---
@@ -99,11 +119,16 @@ _No `apex:pageBlock` components detected._
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected.
+The page includes `apex:actionSupport` components:
+- **Event**: `onmouseover`
+  - **Re-renders**: `contactDetailPanel,statusPanel`
+  - **Action**: `{!MyExtensionController.fetchContactDetails}`
+  - **Status**: `loadingStatus`
 
-- No `apex:outputPanel` components detected.
-
-</details>
+### Output Panels
+- **ID**: `contactDetailPanel`
+  - **Layout**: `block` 
+  - **Content Preview**: "<h3>Contact Details (AJAX Loaded)</h3> <apex:actionStatus id="loadingStatus" startText="Load..."
 
 ---
 
@@ -141,6 +166,7 @@ _No `apex:pageBlock` components detected._
 - `<c:MyCustomHeader>`
 
 ### Scripts
-- No script tags detected.
+The page includes the following script resources or inline blocks:
+- **external**: `/soap/ajax/30.0/connection.js`
 
 </details>

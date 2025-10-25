@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: binding
 
-This Visualforce page allows users to input a course name, which is then displayed dynamically as they type.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to demonstrate data binding in Visualforce, where changes to the input field update the output panel in real time.
+_No purpose available._
 
 
 
@@ -41,7 +41,7 @@ The purpose of this page is to demonstrate data binding in Visualforce, where ch
 ## Properties
 | Name | Type | Visibility | Modifiers | Description |
 |------|------|-------------|------------|--------------|
-| `courseName` | `String` | `public` | `None` | A string property that holds the name of the course entered by the user. |
+| `courseName` | `String` | `public` | `None` | Property courseName of type String. |
 
 ---
 
@@ -74,7 +74,6 @@ The page utilizes the following input bindings:
 
 ## Page Blocks on the Page
 _No `apex:pageBlock` components detected._
-
 </details>
 
 ---
@@ -82,16 +81,9 @@ _No `apex:pageBlock` components detected._
 <details>
 <summary>AJAX Interactions</summary>
 
-The page includes `apex:actionSupport` components:
-- **Event**: `onchange`
-  - **Re-renders**: `courseInfo`
-  
-  
+- No `apex:actionSupport` components detected.
 
-### Output Panels
-- **ID**: `courseInfo`
-  - **Layout**: `block (default)`
-  - **Content Preview**: "No content."
+- No `apex:outputPanel` components detected.
 
 </details>
 
@@ -102,6 +94,7 @@ The page includes `apex:actionSupport` components:
 
 ### Objects
 - `BindingController`
+- `courseName`
 
 ### Fields
 - `courseName`

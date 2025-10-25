@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: pageBlocks
 
-The page utilizes the 'apex:pageBlock' component to create a structured layout for displaying course details and instructor information.
+_No overview available._
 
 ### Purpose of the Page
-To organize and present information related to a course in a clear and accessible manner, enhancing user experience by categorizing content under distinct sections.
+_No purpose available._
 
 
 
@@ -70,7 +70,7 @@ _No public methods found in associated Apex controllers/extensions._
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Course Details`
+_No `apex:pageBlock` components detected._
 
 </details>
 

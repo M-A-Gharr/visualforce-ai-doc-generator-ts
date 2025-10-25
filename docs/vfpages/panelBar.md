@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: panelBar
 
-The 'panelBar' component in Visualforce creates a collapsible container that organizes content into expandable panels, each identified by a label.
+_No overview available._
 
 ### Purpose of the Page
-It is used to enhance user experience by allowing users to view and manage multiple sections of information dynamically, improving content accessibility within a limited space.
+_No purpose available._
 
 
 

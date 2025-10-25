@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: createRecordWithPrepopulatedValues
 
-The 'createRecordWithPrepopulatedValues' Visualforce page is designed to facilitate the creation of new Account records in Salesforce, pre-populating certain fields for user convenience.
+_No overview available._
 
 ### Purpose of the Page
-Its main purpose is to provide an intuitive user interface where users can easily input or modify Account details, enhancing the efficiency of record creation.
+_No purpose available._
 
 
 
@@ -76,8 +76,12 @@ The page includes buttons or links linked to:
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-- **Title**: `Account details`
-
+- **Block Title**: `Account details`
+  **Contains Components**:
+    - `apex:pageBlockButtons`
+    - `apex:commandButton`
+    - `apex:pageBlockSection`
+    - `apex:inputField`
 </details>
 
 ---
@@ -99,6 +103,9 @@ The page includes buttons or links linked to:
 ### Objects
 - `Account`
 - `CreateRecordPrepopulatedController`
+- `save`
+- `cancel`
+- `account`
 
 ### Fields
 - `save`

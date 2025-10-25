@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: viewRelatedRecords
 
-The 'viewRelatedRecords' page is a Visualforce page designed to display a list of contacts related to a specific Account record.
+_No overview available._
 
 ### Purpose of the Page
-It serves to retrieve and present related contact information, including their names, titles, phone numbers, and email addresses, enhancing data visibility and accessibility for users.
+_No purpose available._
 
 
 
@@ -39,14 +39,14 @@ It serves to retrieve and present related contact information, including their n
 <summary>Properties & Methods</summary>
 
 ## Properties
-| Name | Type | Visibility | Modifiers | Description |
-|------|------|-------------|------------|--------------|
-| `contacts` | `List<Contact>` | `public` | `None` | A list of contact records related to the Account being viewed, which are retrieved for display in the page. |
+_No public properties found in associated Apex controllers/extensions._
 
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `getRelatedContacts` | `void` | `()` | `public` | `None` | Method getRelatedContacts returns void and takes (). |
 
 </details>
 
@@ -95,6 +95,9 @@ _No `apex:pageBlock` components detected._
 ### Objects
 - `Account`
 - `ViewRelatedRecordsController`
+- `getRelatedContacts`
+- `contacts`
+- `contact`
 
 ### Fields
 - `getRelatedContacts`

@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: pageMessages
 
-The 'pageMessages' Visualforce page utilizes the PageMessagesController to display any user messages and feedback on the page. It includes a form that allows users to trigger an action.
+_No overview available._
 
 ### Purpose of the Page
-The purpose of this page is to provide an interface for users to receive messages and send a PDF document by clicking a button.
+_No purpose available._
 
 
 
@@ -44,7 +44,10 @@ _No public properties found in associated Apex controllers/extensions._
 ---
 
 ## Methods
-_No public methods found in associated Apex controllers/extensions._
+| Name | Return Type | Parameters | Visibility | Modifiers | Description |
+|------|--------------|-------------|-------------|------------|--------------|
+| `callApex` | `void` | `()` | `public` | `None` | Method callApex returns void and takes (). |
+| `callApex` | `void` | `()` | `public` | `None` | Method callApex returns void and takes (). |
 
 </details>
 
@@ -93,6 +96,7 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `PageMessagesController`
+- `callApex`
 
 ### Fields
 - `callApex`

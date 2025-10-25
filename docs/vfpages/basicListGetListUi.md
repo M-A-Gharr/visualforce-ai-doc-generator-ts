@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: basicListGetListUi
 
-The 'basicListGetListUi' Visualforce page is designed to display a list of Account records in a table format using a standard controller.
+_No overview available._
 
 ### Purpose of the Page
-Its primary purpose is to provide a user-friendly interface for viewing key attributes of each Account, including Name, Type, Phone, and Number of Employees.
+_No purpose available._
 
 
 
@@ -71,7 +71,6 @@ _No public methods found in associated Apex controllers/extensions._
 
 ## Page Blocks on the Page
 _No `apex:pageBlock` components detected._
-
 </details>
 
 ---
@@ -92,6 +91,8 @@ _No `apex:pageBlock` components detected._
 
 ### Objects
 - `Account`
+- `accounts`
+- `account`
 
 ### Fields
 - `accounts`

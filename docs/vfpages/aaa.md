@@ -70,8 +70,17 @@ _No public methods found in associated Apex controllers/extensions._
 <summary>Page Blocks</summary>
 
 ## Page Blocks on the Page
-_No `apex:pageBlock` components detected._
-
+- **Block Title**: `Hello {!$User.FirstName}!`
+  **Contains Components**:
+    - `No specific items detected`
+- **Block Title**: `Contacts`
+  **Contains Components**:
+    - `apex:form`
+    - `apex:dataTable`
+    - `apex:column`
+    - `apex:outputPanel`
+    - `apex:actionSupport`
+    - `apex:param`
 </details>
 
 ---
@@ -79,11 +88,16 @@ _No `apex:pageBlock` components detected._
 <details>
 <summary>AJAX Interactions</summary>
 
-- No `apex:actionSupport` components detected.
+The page includes `apex:actionSupport` components:
+- **Event**: `onmouseover`
+  - **Re-renders**: `detail`
+  
+  - **Status**: `detailStatus`
 
-- No `apex:outputPanel` components detected.
-
-</details>
+### Output Panels
+- **ID**: `detail`
+   
+  - **Content Preview**: "<apex:actionStatus startText="Requesting..." id="detailStatus"> <apex:facet name="stop">..."
 
 ---
 

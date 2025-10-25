@@ -7,10 +7,10 @@
 
 ## Visualforce Page Overview: paginatedList
 
-This page displays a paginated list of accounts.
+_No overview available._
 
 ### Purpose of the Page
-Allow users to browse accounts with pagination.
+_No purpose available._
 
 
 
@@ -39,11 +39,7 @@ Allow users to browse accounts with pagination.
 <summary>Properties & Methods</summary>
 
 ## Properties
-| Name | Type | Visibility | Modifiers | Description |
-|------|------|-------------|------------|--------------|
-| `PaginatedAccounts` | `class` | `public` | `None` | No description. |
-| `records` | `List<Account>` | `public` | `None` | A list of account records being displayed in the paginated view. |
-| `nextPageToken` | `Integer` | `public` | `None` | A token that facilitates fetching the next set of records for pagination. |
+_No public properties found in associated Apex controllers/extensions._
 
 ---
 
@@ -64,11 +60,7 @@ _No public methods found in associated Apex controllers/extensions._
 - No input bindings detected
 
 ### Buttons
-The page includes buttons or links linked to:
-- `{!first}`
-- `{!previous}`
-- `{!next}`
-- `{!last}`
+- No actionable buttons or links detected
 
 </details>
 
@@ -101,6 +93,12 @@ _No `apex:pageBlock` components detected._
 ### Objects
 - `Account`
 - `PaginatedListControllerLwc`
+- `accounts`
+- `account`
+- `first`
+- `previous`
+- `next`
+- `last`
 
 ### Fields
 - `accounts`
